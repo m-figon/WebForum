@@ -4,6 +4,8 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    position: absolute;
+    margin-top: 50px;
 }
 
 .trending-sign{
@@ -12,10 +14,35 @@
     height: 5vh;
 }
 .trending{
-    background-color: white;
-    height: 10vh;
+    height: 20vh;
     width:50%;
+    display: flex;
+    justify-content: space-between;
+}
+.img-txt{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: -50%;
+}
+.trending h1,
+.trending h2{
+    position: relative;
+    color: #e4e3e3;
+    font-size: 1.5rem;
+    z-index:2;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.trending h2{
+    font-weight: bold;
+    font-size: 2rem;
 
+}
+.trending img{
+    height: 23vh;
+    border-radius: 10px;
+    filter: brightness(0.65) blur(1.5px);
+    position: relative;
 }
 .trending-sign h1{
     font-size: 1rem;

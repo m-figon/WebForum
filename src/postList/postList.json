@@ -1,0 +1,31 @@
+[
+    {
+        "id": 0,
+        "user": "Gogobatman",
+        "title": "Fun fact about tennis",
+        "post": "The modern popped collar originated as a way to keep tennis players’ necks from getting sunburnt.",
+        "src": "https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_740,w_1100/f_auto,q_auto,w_400/v1555478876/shape/mentalfloss/066.afg_.gettyimages-1624012.jpg"
+    },
+    {
+        "id": 1,
+        "user": "SlickJoe",
+        "title": "Artistic pigeons",
+        "post": "Trained pigeons can differentiate between the paintings of Pablo Picasso and Claude Monet.",
+        "src": "https://images2.minutemediacdn.com/image/upload/c_crop,h_2859,w_4249,x_25,y_0/f_auto,q_auto,w_400/v1555463469/shape/mentalfloss/213.afg_.pigeon.istock-92017747.jpg"
+    },
+    {
+        "id": 2,
+        "user": "PoteznyGosc",
+        "title": "Theodore Roosevelt fighting skills",
+        "post": "Theodore Roosevelt was the first American to earn a brown belt in judo.",
+        "src": "https://contents.mediadecathlon.com/p1142237/k2de9c60a9086961032cc99b469a841ae/stroj-do-judo-730.jpg?format=auto&quality=60&f=500x0"
+    },
+    {
+        "id": 3,
+        "user": "HelloThere",
+        "title": "Ozzy Osbourne carrier",
+        "post": "Before he sang lead vocals for Black Sabbath, Ozzy Osbourne worked in a slaughterhouse.",
+        "src": "https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_740,w_1100/f_auto,q_auto,w_400/v1555477790/shape/mentalfloss/085.afg_.gettyimages-113154925.jpg"
+    }
+
+]

@@ -1,0 +1,48 @@
+.post-list-display{
+    height: 100vh;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin-top: 50px;
+}
+
+.post-list-sign{
+    margin-top: 30vh;
+    width:50%;
+    height: 5vh;
+}
+.post-list{
+    
+    width:60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.post{
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    margin-left: 25vw;
+
+    background-color: white;
+}
+.post img{
+    width:80%;
+    height: 40%;
+}
+.post-list-sign h1{
+    margin-top: 3.5vh;
+    margin-left: 25vw;
+
+}
+.post-list-sign h1,
+.post h1,
+.post p{
+    font-size: 1rem;
+    color: #2b2b2b;
+}
+.post h1,
+.post p,
+.post img{
+    margin-left: 1.5vw;
+}

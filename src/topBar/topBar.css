@@ -1,10 +1,13 @@
 .top-bar{
+  position:fixed;
     height:5vh;
     width: 100vw;
     background-color: white;
     display: flex;
     align-items: center;
     margin-top: 0;
+    z-index:1
+
 }
 .top-bar h1{
     font-size: 1.5rem;

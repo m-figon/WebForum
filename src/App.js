@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import TopBar from './topBar/topBar'
 import Trending from './trending/trending'
+import PostList from './postList/postList.jsx'
 
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <TopBar/>
-      <Trending/>
-    </div>
-  );
+class App extends Component {
+  render(){
+    return (
+      <div className="App">
+        <TopBar/>
+        <Trending/>
+        <PostList/>
+      </div>
+    );
+  }
+  
 }
 
 export default App;

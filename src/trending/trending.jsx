@@ -1,16 +1,30 @@
-import React from 'react';
+import React,{Component} from 'react';
 import './trending.css';
-function Trending(){
-    return(
-        <div class="trending-display">
-            <div class="trending-sign">
-                <h1>Trending</h1>
+import trend from './trending.json';
+class Trending extends Component{
+    render(){
+        const display= trend.map((item)=>
+                <div>
+                    <img src={item.src}/>
+                    <div class="img-txt">
+                        <h2>{item.user}</h2>
+                        <h1>{item.post}</h1>
+                    </div>
+                </div>
+        );
+        return(
+            <div class="trending-display">
+                <div class="trending-sign">
+                    <h1>Top of the week</h1>
+                </div>
+                
+                <div class="trending">
+                    {display}
+                </div>
             </div>
-            <div class="trending">
-
-            </div>
-        </div>
-
-    );
+    
+        );
+    }
+    
 }
 export default Trending;
