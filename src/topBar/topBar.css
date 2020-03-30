@@ -73,7 +73,12 @@
     height: 3rem;
     pointer-events: none;
   }
-  
+  .right select{
+    width: 10vw;
+    margin-right: 2vw;
+    background-color: #e6e6e6;
+  border: black 0.5px solid;
+  }
   @media (prefers-reduced-motion: no-preference) {
     .App-logo {
       animation: App-logo-spin infinite 20s linear;

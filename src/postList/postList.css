@@ -3,6 +3,7 @@
     width:100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     position: absolute;
     margin-top: 50px;
 }
@@ -14,7 +15,7 @@
 }
 .post-list{
     
-    width:60%;
+    width:50%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -22,7 +23,6 @@
 .post{
     margin-top: 1vh;
     margin-bottom: 1vh;
-    margin-left: 25vw;
 
     background-color: white;
 }
@@ -32,7 +32,7 @@
 }
 .post-list-sign h1{
     margin-top: 3.5vh;
-    margin-left: 25vw;
+    color: #ba0202;
 
 }
 .post-list-sign h1,
@@ -42,7 +42,11 @@
     color: #2b2b2b;
 }
 .post h1,
-.post p,
-.post img{
+.post p
+{
     margin-left: 1.5vw;
+}
+.post img{
+    margin-left:5vw;
+
 }

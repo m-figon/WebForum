@@ -1,14 +1,12 @@
 import React,{Component} from 'react';
 import './postList.css';
 import posts from './postList.json';
-class PostList extends Component{
+class List extends Component{
     render(){
         const display= posts.map((item)=>
                 <div class="post">
-                        
+
                         <h1>{item.title} by {item.user}</h1>
-                        
-                        
                         <p>{item.post}</p>
                         <img src={item.src}/>
                 </div>
@@ -28,4 +26,4 @@ class PostList extends Component{
     }
     
 }
-export default PostList;
+export default List;
