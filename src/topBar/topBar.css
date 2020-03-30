@@ -1,0 +1,88 @@
+.top-bar{
+    height:5vh;
+    width: 100vw;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+}
+.top-bar h1{
+    font-size: 1.5rem;
+    color: #2b2b2b;
+}
+.left{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.middle{
+  margin-left: -10vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.middle img{
+  height: 2.6vh;
+}
+.top-bar input{
+  height: 2vh;
+  background-color: #e6e6e6;
+  border: black 0.5px solid;
+  padding: 1%;
+}
+.top-bar input{
+  width:80%;
+}
+.right{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding-right: 5vw;
+}
+#log-in{
+  background-color: white;
+  color: #ba0202;
+}
+
+#sign-up{
+  background-color: #ba0202;
+  color: white;
+}
+.right button{
+  height:70%;
+  width: 20%;
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+  border: black 1.5px solid;
+  border-radius: 7px;
+
+}
+.right h1{
+  font-size: 0.7rem;
+}
+.App-logo {
+    height: 3rem;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  

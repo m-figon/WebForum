@@ -1,0 +1,23 @@
+.trending-display{
+    height: 100vh;
+    width:100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.trending-sign{
+    margin-top: 3vh;
+    width:50%;
+    height: 5vh;
+}
+.trending{
+    background-color: white;
+    height: 10vh;
+    width:50%;
+
+}
+.trending-sign h1{
+    font-size: 1rem;
+    color: #2b2b2b;
+}
