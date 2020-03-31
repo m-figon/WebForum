@@ -1,7 +1,7 @@
 import React from 'react';
-import TopBar from './topBar/topBar'
-import Trending from './trending/trending'
-import List from './postList/list'
+import TopBar from './topBar/topBar.jsx';
+import Trending from './trending/trending.jsx';
+import List from './postList/postList.jsx';
 import './App.css';
 
 function App() {

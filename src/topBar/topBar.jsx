@@ -1,6 +1,6 @@
 import "./topBar.css";
 import React, {Component} from 'react';
-import logo from './logo.svg';
+import logo from './lollipop.png';
 import searchImg from './search.png';
 class TopBar extends Component{
     constructor(){
@@ -48,8 +48,8 @@ class TopBar extends Component{
                         <option value="3">3</option>
                         <option value="4">4</option>
                     </select>
-                    <button id="log-in"><h1 id="log-in">Log in</h1></button>
-                    <button id="sign-up"><h1 id="sign-up">Sign up</h1></button>
+                    <h1 id="log-in">Log in</h1>
+                    <h1 id="sign-up">Sign up</h1>
 
                 </div>
             </div>
