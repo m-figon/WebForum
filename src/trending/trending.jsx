@@ -1,17 +1,21 @@
   
 import React,{Component} from 'react';
 import './trending.css';
-import trend from './trending.json';
+import postList from '../postList/postList.json';
 class Trending extends Component{
     render(){
-        const display= trend.map((item)=>
-                <div class="trend">
+        const display= postList.map((item)=>{
+            if(item.points>1000){
+                return(
+                    <div class="trend" onClick={()=>this.props.clickHandler(item.title)}>
                     <img src={item.src}/>
                     <div class="img-txt">
                         <h2>{item.user}</h2>
-                        <h1>{item.post}</h1>
+                        <h1>{item.title}</h1>
                     </div>
-                </div>
+                    </div>
+                    ); }
+            }   
         );
         return(
             <div class="trending-display">

@@ -67,6 +67,9 @@
 #title{
   cursor: pointer;
 }
+#reset:hover{
+  cursor: pointer;
+}
 .right button{
   height:70%;
   width: 20%;

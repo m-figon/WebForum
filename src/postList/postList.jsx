@@ -11,7 +11,7 @@ class PostList extends Component{
     }
     render(){
         const display= posts.map((item)=>{
-            if(this.props.selectValue==="section" || (this.props.selectValue==="curiosities" && item.section=="curiosities") || 
+            if((this.props.selectValue==="none" && this.props.searchValue==item.title) || this.props.selectValue==="section" || (this.props.selectValue==="curiosities" && item.section=="curiosities") || 
             (this.props.selectValue==="fit" && item.section=="fit") || 
             (this.props.selectValue==="food" && item.section=="food")|| 
             (this.props.selectValue==="films" && item.section=="films")){

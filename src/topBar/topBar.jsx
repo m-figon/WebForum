@@ -6,17 +6,11 @@ class TopBar extends Component{
     constructor(){
         super();
         this.state={
-            searchValue: "",
-            select: ""
+            
         }
-        this.searchBarChange = this.searchBarChange.bind(this);
 
     }
-    searchBarChange(e){
-        this.setState({
-            searchValue: e.target.value
-        })
-    }
+    
     
     componentDidUpdate(){
         setInterval(()=>
@@ -29,11 +23,10 @@ class TopBar extends Component{
             <div class="top-bar">
                 <div class="left">
                 <img src={logo} className="App-logo" alt="logo" />
-                <h1>ReactForum</h1>
+                <h1 id="reset" onClick={this.props.reset}>ReactForum</h1>
                 </div>
                 <div class="middle">
-    
-                <input type="text" onChange={(e)=>this.searchBarChange(e)}value={this.state.searchValue}/><button type="button"><img src={searchImg}/></button>
+                <input type="text" onChange={(e)=>this.props.searchHandler(e)} value={this.props.searchValue}/><button type="button" onClick={this.props.searchSubmitHandler}><img src={searchImg}/></button>
                 </div>
                 <div class="right">
                     <select value={this.props.selectValue} onChange={(e)=>this.props.selectHandler(e)}>
