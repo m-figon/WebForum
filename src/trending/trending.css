@@ -16,6 +16,9 @@
     width:50%;
 
 }
+.trend:hover{
+    cursor: pointer;
+}
 .trending-sign h1{
     font-size: 1rem;
     color: #2b2b2b;

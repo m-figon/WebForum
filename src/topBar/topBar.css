@@ -32,6 +32,9 @@
 .middle img{
   height: 2.6vh;
 }
+.middle img:hover{
+  cursor: pointer;
+}
 .top-bar input{
   height: 2vh;
   background-color: #e6e6e6;
@@ -40,6 +43,9 @@
 }
 .top-bar input{
   width:80%;
+  font-family: 'PT Sans', sans-serif;
+
+
 }
 .right{
   display: flex;
@@ -56,7 +62,11 @@
   font-size: 1.5rem;
   margin-right: 1vw
 }
-
+#log-in:hover,
+#sign-up:hover,
+#title{
+  cursor: pointer;
+}
 .right button{
   height:70%;
   width: 20%;

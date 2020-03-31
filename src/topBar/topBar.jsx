@@ -10,7 +10,6 @@ class TopBar extends Component{
             select: ""
         }
         this.searchBarChange = this.searchBarChange.bind(this);
-        this.selectChange = this.selectChange.bind(this);
 
     }
     searchBarChange(e){
@@ -18,11 +17,7 @@ class TopBar extends Component{
             searchValue: e.target.value
         })
     }
-    selectChange(e){
-        this.setState({
-            select: e.target.value
-        })
-    }
+    
     componentDidUpdate(){
         setInterval(()=>
         {
@@ -41,12 +36,12 @@ class TopBar extends Component{
                 <input type="text" onChange={(e)=>this.searchBarChange(e)}value={this.state.searchValue}/><button type="button"><img src={searchImg}/></button>
                 </div>
                 <div class="right">
-                    <select value={this.state.select} onChange={(e)=>this.selectChange(e)}>
-                        <option value="section">Section</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
+                    <select value={this.props.selectValue} onChange={(e)=>this.props.selectHandler(e)}>
+                        <option value="section">section</option>
+                        <option value="curiosities">curiosities</option>
+                        <option value="fit">fit</option>
+                        <option value="food">food</option>
+                        <option value="films">films</option>
                     </select>
                     <h1 id="log-in">Log in</h1>
                     <h1 id="sign-up">Sign up</h1>

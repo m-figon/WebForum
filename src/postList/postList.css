@@ -7,7 +7,6 @@
     position: absolute;
     margin-top: 50px;
 }
-
 .post-list-sign{
     margin-top: 30vh;
     width:50%;
@@ -54,12 +53,10 @@
 {
     margin-left: 1.5vw;
 }
-.post h2{
-}
 
 .post-desc{
     display: flex;
-
+    padding-top: 2vh;
 }
 .img{
     display: flex;
@@ -96,4 +93,7 @@
     margin-right: 1vw;
     height: 1.3rem;
     width: 1.3rem;
+}
+.post-buttons img:hover{
+    cursor: pointer;
 }

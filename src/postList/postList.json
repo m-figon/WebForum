@@ -21,6 +21,16 @@
     },
     {
         "id": 2,
+        "user": "RippedBro",
+        "title": "Deadlift advice",
+        "post": "How much have you progress in your deadlift for last year?",
+        "src": "https://data4.cupsell.pl/upload/generator/276575/640x420/4668967_print_1.png?resize=max_sizes&key=55f9a22768eed085006592c1174c0235",
+        "section": "fit",
+        "points": 400,
+        "comments": 70
+    },
+    {
+        "id": 3,
         "user": "PoteznyGosc",
         "title": "Theodore Roosevelt fighting skills",
         "post": "Theodore Roosevelt was the first American to earn a brown belt in judo.",
@@ -28,9 +38,18 @@
         "section": "curiosities",
         "points": 870,
         "comments": 25
+    },{
+        "id": 4,
+        "user": "HelloThere",
+        "title": "Parasite, is it worth watching?",
+        "post": "I think it's really good, how about you?",
+        "src": "https://assets.mubicdn.net/images/notebook/post_images/29882/images-w1400.jpg?1579663202",
+        "section": "films",
+        "points": 760,
+        "comments": 45
     },
     {
-        "id": 3,
+        "id": 5,
         "user": "HelloThere",
         "title": "Ozzy Osbourne carrier",
         "post": "Before he sang lead vocals for Black Sabbath, Ozzy Osbourne worked in a slaughterhouse.",
@@ -38,6 +57,16 @@
         "section": "curiosities",
         "points": 760,
         "comments": 45
+    },
+    {
+        "id": 6,
+        "user": "ReviewGuy",
+        "title": "KFC Waffle Sandwich",
+        "post": "What do you think of KFC's new product?",
+        "src": "https://i.insider.com/5c015ba35930f803054f11d5?width=1136&format=jpeg",
+        "section": "food",
+        "points": 460,
+        "comments": 42
     }
 
 ]

@@ -5,7 +5,7 @@ import trend from './trending.json';
 class Trending extends Component{
     render(){
         const display= trend.map((item)=>
-                <div>
+                <div class="trend">
                     <img src={item.src}/>
                     <div class="img-txt">
                         <h2>{item.user}</h2>
