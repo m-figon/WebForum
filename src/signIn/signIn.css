@@ -1,0 +1,175 @@
+
+.registration{
+    position: absolute;
+    display: flex;
+    height:100vh;
+    width:100vw;
+    flex-direction: row;
+    justify-content: center; 
+    align-items: center;
+    z-index: 3;
+}
+.cancel-button{
+    
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+}
+.app-form{
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #6d6d6d;
+    width:40%;
+    height: 35rem;
+    border-radius: 10px;
+}
+#login{
+    height: 20vh;
+    width: 30vw;
+}
+#form{
+    width: 80%;
+    text-align: left;
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+.one-line{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 2rem;
+}
+.left{
+    display: flex;
+    width: 50%;
+    height:3rem;
+    justify-content: flex-start;
+    align-items: center;
+}
+.right{
+    width: 60%;
+    float: right;
+    height:2rem;
+}
+
+.app-form input,
+.app-form select{
+    padding: 0.2rem 0.2rem;
+    font-family: 'PT Sans', sans-serif;
+    height:1.5rem;
+    width:90%;
+    color: #383838;
+    font-size: 1.2rem;
+    border-radius: 7px;
+}
+.correct{
+    border: #00ca33 solid 2px;
+}
+.incorrect{
+    border: #c70202 solid 2px;
+}
+.app-form h1{
+    display: inline-block;
+    color: #c4c4c4;
+    font-size: 1.5rem;
+    font-family: 'PT Sans', sans-serif;
+    
+}
+.app-form button{
+    margin: 2rem 0;
+    background-color: #4a4a4a;
+    color:#cacaca;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 1.2rem;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.app-form button:hover{
+    cursor: pointer;
+}
+#submit{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#hiddenTooltip1,
+#hiddenTooltip2,
+#hiddenTooltip3,
+#hiddenTooltip4,
+#hiddenTooltip5,
+#hiddenTooltip6,
+#visibleTooltip1,
+#visibleTooltip2,
+#visibleTooltip3,
+#visibleTooltip4,
+#visibleTooltip5,
+#visibleTooltip6{
+    visibility: hidden;
+    display: block;
+    position: relative;
+    top:-2rem;
+    left:93%;
+    width: 10rem;
+    padding: 0.2rem 0.5rem;
+    background-color: #30a189;
+    color:#cacaca;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 0.6rem;
+    border-radius: 5px;
+}
+#hiddenTooltip5,
+#hiddenTooltip6,
+#visibleTooltip5,
+#visibleTooltip6{
+    margin-top:0rem;
+    left:96%;
+
+}
+#visibleTooltip1,
+#visibleTooltip2,
+#visibleTooltip3,
+#visibleTooltip4,
+#visibleTooltip5,
+#visibleTooltip6{
+    visibility: visible;
+}
+#days,
+#years,
+#months
+{
+    width:32%;
+    height:2rem;
+}
+#countries{
+    width:95%;
+    height:2rem;
+}
+#show{
+    position: absolute;
+    margin-left: 31%;
+    margin-top: -2.6rem;
+    width:4%;
+    height: 4%;
+    font-size: 0.7rem;
+}
+
+@media (max-width: 970px){
+    .app-form h1{
+        font-size: 1.2rem;
+    
+    }
+    .app-form input,
+    .app-form select{
+    font-size: 0.8rem;
+    }
+    #show{
+        font-size: 0.5rem;
+    }
+    
+}

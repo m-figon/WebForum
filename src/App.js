@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import TopBar from './topBar/topBar.jsx';
 import Trending from './trending/trending.jsx';
 import PostList from './postList/postList.jsx';
+import SignIn from './signIn/signIn.jsx';
 import './App.css';
 
 class App extends Component {
@@ -11,12 +12,16 @@ class App extends Component {
       section: "section",
       tmpSearch: "",
       search: "",
+      login: false,
+      register: false,
     };
     this.selectChange = this.selectChange.bind(this);
     this.searchBarChange = this.searchBarChange.bind(this);
     this.searchButton = this.searchButton.bind(this);
     this.searchClick = this.searchClick.bind(this);
     this.resetState = this.resetState.bind(this);
+    this.sectionClick = this.sectionClick.bind(this);
+    this.loginStateChange = this.loginStateChange.bind(this);
 
   }
   selectChange(e){
@@ -26,10 +31,14 @@ class App extends Component {
     console.log(this.state.section);
   }
   searchBarChange(e){
-  
     this.setState({
         search: e.target.value
     })
+  }
+  sectionClick(value){
+    this.setState({
+      section: value
+  })
   }
   searchClick(value){
     this.setState({
@@ -52,12 +61,18 @@ class App extends Component {
       search: ""
   })
   }
+  loginStateChange(value){
+    this.setState({
+      login: value
+    })
+  }
   render(){
       return (
         <div className="App">
-          <TopBar reset={this.resetState} searchSubmitHandler={this.searchButton} selectValue={this.state.section} searchValue={this.state.search} selectHandler={this.selectChange} searchHandler={this.searchBarChange}/>
+          <TopBar  loginHandler={this.loginStateChange} reset={this.resetState} searchSubmitHandler={this.searchButton} selectValue={this.state.section} searchValue={this.state.search} selectHandler={this.selectChange} searchHandler={this.searchBarChange}/>
           <Trending clickHandler={this.searchClick}/>
-          <PostList selectValue={this.state.section} searchValue={this.state.tmpSearch} searchState={this.state.searchSubmit}/>
+          <PostList clickHandler={this.sectionClick} selectValue={this.state.section} searchValue={this.state.tmpSearch} searchState={this.state.searchSubmit}/>
+          <SignIn loginHandler={this.loginStateChange} login={this.state.login}/>
         </div>
       );
   }

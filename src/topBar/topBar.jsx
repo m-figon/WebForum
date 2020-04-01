@@ -10,14 +10,6 @@ class TopBar extends Component{
         }
 
     }
-    
-    
-    componentDidUpdate(){
-        setInterval(()=>
-        {
-            //changing topic
-        },1000)
-    }
     render(){
         return(
             <div class="top-bar">
@@ -36,7 +28,7 @@ class TopBar extends Component{
                         <option value="food">food</option>
                         <option value="films">films</option>
                     </select>
-                    <h1 id="log-in">Log in</h1>
+                    <h1 id="log-in" onClick={()=>this.props.loginHandler(true)}>Log in</h1>
                     <h1 id="sign-up">Sign up</h1>
 
                 </div>

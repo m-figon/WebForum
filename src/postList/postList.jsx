@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
 import './postList.css';
-import posts from './postList.json';
 import commentImg from './orangeText.png';
 import up from './orangeUp.png';
 import down from './orangeDown.png';
@@ -8,9 +7,21 @@ import down from './orangeDown.png';
 class PostList extends Component{
     constructor(){
         super();
+        this.state=({
+            jsonArray: []
+        })
+    }
+    componentDidMount(){
+        fetch('http://localhost:3000/posts')
+        .then(response => response.json())
+        .then(json =>{ 
+            this.setState({
+                jsonArray: json
+            });
+        })
     }
     render(){
-        const display= posts.map((item)=>{
+        const display= this.state.jsonArray.map((item)=>{
             if((this.props.selectValue==="none" && this.props.searchValue==item.title) || this.props.selectValue==="section" || (this.props.selectValue==="curiosities" && item.section=="curiosities") || 
             (this.props.selectValue==="fit" && item.section=="fit") || 
             (this.props.selectValue==="food" && item.section=="food")|| 
@@ -21,7 +32,7 @@ class PostList extends Component{
                         <h1>{item.title} by {item.user}</h1>
                     </div>
                     <div class="right">
-                        <h2 id="section">{item.section}</h2>
+                        <h2 id="section" onClick={()=>this.props.clickHandler(item.section)}>{item.section}</h2>
                         <h2>{item.points} Points {item.comments} Comments</h2>
                     </div>
                 </div>

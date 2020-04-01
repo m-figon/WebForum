@@ -70,6 +70,9 @@
     height: 4vh;
 
 }
+#section:hover{
+    cursor: pointer;
+}
 .post-buttons button{
     background-color: #fc9003;
   color: white;

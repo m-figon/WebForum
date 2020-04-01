@@ -1,10 +1,24 @@
   
 import React,{Component} from 'react';
 import './trending.css';
-import postList from '../postList/postList.json';
 class Trending extends Component{
+    constructor(){
+        super();
+        this.state=({
+            jsonArray: []
+        })
+    }
+    componentDidMount(){
+        fetch('http://localhost:3000/posts')
+        .then(response => response.json())
+        .then(json =>{ 
+            this.setState({
+                jsonArray: json
+            });
+        })
+    }
     render(){
-        const display= postList.map((item)=>{
+        const display= this.state.jsonArray.map((item)=>{
             if(item.points>1000){
                 return(
                     <div class="trend" onClick={()=>this.props.clickHandler(item.title)}>
@@ -14,7 +28,7 @@ class Trending extends Component{
                         <h1>{item.title}</h1>
                     </div>
                     </div>
-                    ); }
+                    );}
             }   
         );
         return(
