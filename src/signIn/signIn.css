@@ -12,8 +12,8 @@
 .cancel-button{
     
     position: absolute;
-    margin-left: 14%;
-    margin-top: -15vh;
+    margin-left: 17%;
+    margin-top: -18vh;
 }
 .app-form{
     padding: 2rem;
@@ -25,15 +25,31 @@
     background-color: white;
     border: solid #fc9003 2px;
     width:30%;
-    height: 30vh;
+    height: 40vh;
     border-radius: 10px;
 }
+#login{
+    width:40%;
+    height: 35vh;
+}
+#register{
+    width:40%;
+    height: 40vh;
+}
+#form{
+    width:35vw;
+    height: 35vh;
+}
 #correct-ac,
-#correct-pass{
+#correct-pass,
+#correct-pass2,
+#correct-email{
     border: solid #00cf23 2px;
 }
 #incorrect-ac,
-#incorrect-pass{
+#incorrect-pass,
+#incorrect-pass2,
+#incorrect-email{
     border: solid #e90101 2px;
 }
 
@@ -147,7 +163,7 @@
 }
 #show{
     position: absolute;
-    margin-left: 25vw;
+    margin-left: 27vw;
     margin-top: -2.6rem;
     width:3vw;
     height: 3.6%;

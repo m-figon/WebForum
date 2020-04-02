@@ -7,6 +7,8 @@ class SignUp extends Component{
         this.state={
             account: "",
             password: "",
+            password2: "",
+            email: "",
             passwordType: "password",
             jsonArray: []
         }
@@ -14,6 +16,7 @@ class SignUp extends Component{
         this.passwordTypeChange=this.passwordTypeChange.bind(this);
         this.displayData=this.displayData.bind(this);
         this.propertyChange=this.propertyChange.bind(this);
+        this.validateInput=this.validateInput.bind(this);
     }
     componentDidMount(){
         fetch('http://localhost:3000/users')
@@ -54,25 +57,22 @@ class SignUp extends Component{
             console.log(e);
           }
     }
-    displayData(){
-        var correctFlag=false;
-        this.state.jsonArray.map(item=>{
-            if(this.state.account==item.user && this.state.password==item.password){
-                this.propertyChange("#account","correct-ac",null);
-                this.propertyChange("#incorrect-ac","correct-ac",null);
-                this.propertyChange("#visibleTooltip1","hiddenTooltip1",null);
-                this.propertyChange("#password","correct-pass",null);
-                this.propertyChange("#incorrect-pass","correct-pass",null);
-                correctFlag=true;
-            }
-        }) 
-        if(correctFlag==false){
-            this.propertyChange("#hiddenTooltip1","visibleTooltip1",null);
-            this.propertyChange("#correct-ac","incorrect-ac",null);
-            this.propertyChange("#account","incorrect-ac",null);
-            this.propertyChange("#correct-pass","incorrect-pass",null);
-            this.propertyChange("#password","incorrect-pass",null);
+    validateInput(condition,variable,correct,incorrect,visible,hidden){
+        if(condition){
+            this.propertyChange('#'+variable,incorrect,null);
+            this.propertyChange('#'+correct,incorrect,null);
+            this.propertyChange('#'+hidden,visible,null);
+        }else{
+            this.propertyChange('#'+variable,correct,null);
+            this.propertyChange('#'+incorrect,correct,null);
+            this.propertyChange('#'+visible,hidden,null);
         }
+    }
+    displayData(){
+        this.validateInput(this.state.account.match(/^[a-zA-Z0-9\.\-_]{4,10}$/)==null,"account","correct-ac","incorrect-ac","visibleTooltip1","hiddenTooltip1");
+        this.validateInput(this.state.email.match(/^[a-z0-9\._\-]+@[a-z0-9\.\-]+\.[a-z]{2,4}$/)==null,"email","correct-email","incorrect-email","visibleTooltip2","hiddenTooltip");
+        this.validateInput(this.state.password.match(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\.\-_@$!%*#?&])[A-Za-z\d\.\-_@$!%*#?&]{8,13}$/)==null,"password","correct-pass","incorrect-pass","visibleTooltip3","hiddenTooltip3");
+        this.validateInput(this.state.password2!=this.state.password,"password2","correct-pass2","incorrect-pass2","visibleTooltip4","hiddenTooltip4");
     }
     render(){
         if(this.props.register==false){
@@ -80,7 +80,7 @@ class SignUp extends Component{
         }else{
             return(
                 <div class="registration">
-                <div id="login" class="app-form">
+                <div id="register" class="app-form">
                     <div class="cancel-button">
                         <button  onClick={()=>this.props.loginHandler("register",false)}>X</button>
                     </div>
@@ -91,7 +91,16 @@ class SignUp extends Component{
                     </div>
                     <div class="right">
                     <input id="account" type="text" onChange={(e)=>this.inputChange("account",e)} value={this.state.account}/>
-                    <div id="hiddenTooltip1">Please enter correct account name and password</div>
+                    <div id="hiddenTooltip1">Please enter correct account name</div>
+                    </div>
+                  </div>
+                  <div class="one-line">
+                    <div class="left">
+                    <h1>e-mail adress</h1>
+                    </div>
+                    <div class="right">
+                    <input id="email" type="text" onChange={(e)=>this.inputChange("email",e)} value={this.state.email}/>
+                    <div id="hiddenTooltip2">Please enter correct email adress</div>
                     </div>
                   </div>
                   <div class="one-line">
@@ -100,10 +109,19 @@ class SignUp extends Component{
                     </div>
                     <div class="right">
                     <input id="password" onChange={(e)=>this.inputChange("password",e)} type={this.state.passwordType} value={this.state.password}/>
+                    <div id="hiddenTooltip3">Please enter correct password</div>
                     </div>
                   </div>
                   <button type="button" id="show" onClick={this.passwordTypeChange}>SHOW</button>
-    
+                  <div class="one-line">
+                    <div class="left">
+                    <h1>confirm password</h1>
+                    </div>
+                    <div class="right">
+                    <input id="password2" onChange={(e)=>this.inputChange("password2",e)} type={this.state.passwordType} value={this.state.password2}/>
+                    <div id="hiddenTooltip4">Please confirm your password</div>
+                    </div>
+                  </div>
                   </form>
                   
                 <button onClick={this.displayData}>Login</button>
