@@ -28,8 +28,8 @@ class TopBar extends Component{
                         <option value="food">food</option>
                         <option value="films">films</option>
                     </select>
-                    <h1 id="log-in" onClick={()=>this.props.loginHandler(true)}>Log in</h1>
-                    <h1 id="sign-up">Sign up</h1>
+                    <h1 id="log-in" onClick={()=>this.props.loginHandler("login",true)}>Log in</h1>
+                    <h1 id="sign-up" onClick={()=>this.props.loginHandler("register",true)}>Sign up</h1>
 
                 </div>
             </div>

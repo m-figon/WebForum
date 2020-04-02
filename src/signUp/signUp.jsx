@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import ReactDOM from "react-dom";
-import './signIn.css';
-class SignIn extends Component{
+import '../signIn/signIn.css';
+class SignUp extends Component{
     constructor(){
         super();
         this.state={
@@ -75,14 +75,14 @@ class SignIn extends Component{
         }
     }
     render(){
-        if(this.props.login==false){
+        if(this.props.register==false){
             return(null);
         }else{
             return(
                 <div class="registration">
                 <div id="login" class="app-form">
                     <div class="cancel-button">
-                        <button  onClick={()=>this.props.loginHandler("login",false)}>X</button>
+                        <button  onClick={()=>this.props.loginHandler("register",false)}>X</button>
                     </div>
                 <form id="form">
                 <div class="one-line">
@@ -114,4 +114,4 @@ class SignIn extends Component{
         
     }
 }
-export default SignIn;
+export default SignUp;

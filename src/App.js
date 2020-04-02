@@ -3,6 +3,8 @@ import TopBar from './topBar/topBar.jsx';
 import Trending from './trending/trending.jsx';
 import PostList from './postList/postList.jsx';
 import SignIn from './signIn/signIn.jsx';
+import SignUp from './signUp/signUp.jsx';
+
 import './App.css';
 
 class App extends Component {
@@ -22,7 +24,7 @@ class App extends Component {
     this.searchClick = this.searchClick.bind(this);
     this.resetState = this.resetState.bind(this);
     this.sectionClick = this.sectionClick.bind(this);
-    this.loginStateChange = this.loginStateChange.bind(this);
+    this.loginRegisterStateChange = this.loginRegisterStateChange.bind(this);
 
   }
   selectChange(e){
@@ -62,17 +64,16 @@ class App extends Component {
       search: ""
   })
   }
-  loginStateChange(value){
+  loginRegisterStateChange(type,value){
     this.setState({
-      login: value
+      [type]: value
     })
-    console.log(this.state.login);
     }
   render(){
-      if(this.state.login===false){
+      if(this.state.login===false && this.state.register===false){
         return (
           <div className="App">
-            <TopBar loginHandler={this.loginStateChange} reset={this.resetState} searchSubmitHandler={this.searchButton} selectValue={this.state.section} searchValue={this.state.search} selectHandler={this.selectChange} searchHandler={this.searchBarChange}/>
+            <TopBar loginHandler={this.loginRegisterStateChange} reset={this.resetState} searchSubmitHandler={this.searchButton} selectValue={this.state.section} searchValue={this.state.search} selectHandler={this.selectChange} searchHandler={this.searchBarChange}/>
             <Trending clickHandler={this.searchClick}/>
             <PostList clickHandler={this.sectionClick} selectValue={this.state.section} searchValue={this.state.tmpSearch} searchState={this.state.searchSubmit}/>
           </div>
@@ -82,15 +83,26 @@ class App extends Component {
           return (
             <>
             <div className="dark-App">
-              <TopBar loginHandler={this.loginStateChange} reset={this.resetState} searchSubmitHandler={this.searchButton} selectValue={this.state.section} searchValue={this.state.search} selectHandler={this.selectChange} searchHandler={this.searchBarChange}/>
+              <TopBar loginHandler={this.loginRegisterStateChange} reset={this.resetState} searchSubmitHandler={this.searchButton} selectValue={this.state.section} searchValue={this.state.search} selectHandler={this.selectChange} searchHandler={this.searchBarChange}/>
               <Trending clickHandler={this.searchClick}/>
               <PostList clickHandler={this.sectionClick} selectValue={this.state.section} searchValue={this.state.tmpSearch} searchState={this.state.searchSubmit}/>
             </div>
-            <SignIn loginHandler={this.loginStateChange} login={this.state.login}/>
+            <SignIn loginHandler={this.loginRegisterStateChange} login={this.state.login}/>
             </>
           );
       }
-      
+      else if(this.state.register===true){
+        return (
+          <>
+          <div className="dark-App">
+            <TopBar loginHandler={this.loginRegisterStateChange} reset={this.resetState} searchSubmitHandler={this.searchButton} selectValue={this.state.section} searchValue={this.state.search} selectHandler={this.selectChange} searchHandler={this.searchBarChange}/>
+            <Trending clickHandler={this.searchClick}/>
+            <PostList clickHandler={this.sectionClick} selectValue={this.state.section} searchValue={this.state.tmpSearch} searchState={this.state.searchSubmit}/>
+          </div>
+          <SignUp loginHandler={this.loginRegisterStateChange} register={this.state.register}/>
+          </>
+        );
+    }
   }
 }
 export default App;
