@@ -7,10 +7,16 @@
     position: absolute;
     margin-top: 50px;
 }
-.post-list-sign{
-    margin-top: 30vh;
+.post-list-sign,
+.one-post{
     width:50%;
     height: 5vh;
+}
+.post-list-sign{
+    margin-top: 30vh;
+}
+#post-title{
+    cursor: pointer;
 }
 .post-list{
     

@@ -70,9 +70,9 @@ class SignUp extends Component{
     }
     displayData(){
         this.validateInput(this.state.account.match(/^[a-zA-Z0-9\.\-_]{4,10}$/)==null,"account","correct-ac","incorrect-ac","visibleTooltip1","hiddenTooltip1");
-        this.validateInput(this.state.email.match(/^[a-z0-9\._\-]+@[a-z0-9\.\-]+\.[a-z]{2,4}$/)==null,"email","correct-email","incorrect-email","visibleTooltip2","hiddenTooltip");
+        this.validateInput(this.state.email.match(/^[a-z0-9\._\-]+@[a-z0-9\.\-]+\.[a-z]{2,4}$/)==null,"email","correct-email","incorrect-email","visibleTooltip2","hiddenTooltip2");
         this.validateInput(this.state.password.match(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\.\-_@$!%*#?&])[A-Za-z\d\.\-_@$!%*#?&]{8,13}$/)==null,"password","correct-pass","incorrect-pass","visibleTooltip3","hiddenTooltip3");
-        this.validateInput(this.state.password2!=this.state.password,"password2","correct-pass2","incorrect-pass2","visibleTooltip4","hiddenTooltip4");
+        this.validateInput((this.state.password2!=this.state.password) || (this.state.password2==""),"password2","correct-pass2","incorrect-pass2","visibleTooltip4","hiddenTooltip4");
     }
     render(){
         if(this.props.register==false){

@@ -70,12 +70,12 @@ class App extends Component {
     })
     }
   render(){
-      if(this.state.login===false && this.state.register===false){
+      if(this.state.login===false && this.state.register===false && this.state.section!="none"){
         return (
           <div className="App">
             <TopBar loginHandler={this.loginRegisterStateChange} reset={this.resetState} searchSubmitHandler={this.searchButton} selectValue={this.state.section} searchValue={this.state.search} selectHandler={this.selectChange} searchHandler={this.searchBarChange}/>
             <Trending clickHandler={this.searchClick}/>
-            <PostList clickHandler={this.sectionClick} selectValue={this.state.section} searchValue={this.state.tmpSearch} searchState={this.state.searchSubmit}/>
+            <PostList clickOnSign={this.searchClick} clickHandler={this.sectionClick} selectValue={this.state.section} searchValue={this.state.tmpSearch} searchState={this.state.searchSubmit}/>
           </div>
         );
       }
@@ -85,7 +85,7 @@ class App extends Component {
             <div className="dark-App">
               <TopBar loginHandler={this.loginRegisterStateChange} reset={this.resetState} searchSubmitHandler={this.searchButton} selectValue={this.state.section} searchValue={this.state.search} selectHandler={this.selectChange} searchHandler={this.searchBarChange}/>
               <Trending clickHandler={this.searchClick}/>
-              <PostList clickHandler={this.sectionClick} selectValue={this.state.section} searchValue={this.state.tmpSearch} searchState={this.state.searchSubmit}/>
+              <PostList  clickHandler={this.sectionClick} selectValue={this.state.section} searchValue={this.state.tmpSearch} searchState={this.state.searchSubmit}/>
             </div>
             <SignIn loginHandler={this.loginRegisterStateChange} login={this.state.login}/>
             </>
@@ -102,6 +102,14 @@ class App extends Component {
           <SignUp loginHandler={this.loginRegisterStateChange} register={this.state.register}/>
           </>
         );
+    }
+    if(this.state.section=="none"){
+      return (
+        <div className="App">
+          <TopBar loginHandler={this.loginRegisterStateChange} reset={this.resetState} searchSubmitHandler={this.searchButton} selectValue={this.state.section} searchValue={this.state.search} selectHandler={this.selectChange} searchHandler={this.searchBarChange}/>
+          <PostList  clickHandler={this.sectionClick} selectValue={this.state.section} searchValue={this.state.tmpSearch} searchState={this.state.searchSubmit}/>
+        </div>
+      );
     }
   }
 }
