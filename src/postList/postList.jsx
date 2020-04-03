@@ -8,8 +8,11 @@ class PostList extends Component{
     constructor(){
         super();
         this.state=({
+            comments: true,
             jsonArray: [],
         })
+        this.commentsSwitch = this.commentsSwitch.bind(this);
+        this.commentSwitchOutside=this.commentSwitchOutside.bind(this);
     }
     componentDidMount(){
         fetch('http://localhost:3000/posts')
@@ -19,6 +22,22 @@ class PostList extends Component{
                 jsonArray: json
             });
         })
+    }
+    commentsSwitch(){
+        if(this.state.comments===true){
+            this.setState({
+                comments: false
+            })
+        }else {
+            this.setState({
+                comments: true
+            })
+        }
+        console.log(this.state.comments);
+    }
+    commentSwitchOutside(value){
+        this.props.clickOnSign(value);
+        //link to comments by id
     }
     render(){
         
@@ -41,9 +60,9 @@ class PostList extends Component{
                 <div class="post-buttons">
                     <img src={up}/>
                     <img src={down}/>
-                    <img src={commentImg}/>
+                    <img onClick={this.commentsSwitch} src={commentImg}/>
                 </div>
-                <Comments json={this.state.jsonArray}/>
+                <Comments commentState={this.state.comments} idNumber={item.id}json={this.state.jsonArray}/>
             </div>);
             }
             else if(this.props.selectValue==="section" || (this.props.selectValue==="curiosities" && item.section=="curiosities") || 
@@ -67,7 +86,7 @@ class PostList extends Component{
                 <div class="post-buttons">
                     <img src={up}/>
                     <img src={down}/>
-                    <img src={commentImg}/>
+                    <img onClick={()=>this.props.clickOnSign(item.title)} src={commentImg}/>
                 </div>
             </div>
             );
