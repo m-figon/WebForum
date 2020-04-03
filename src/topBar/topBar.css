@@ -42,7 +42,9 @@
   padding: 1%;
 }
 .top-bar input{
-  width:80%;
+  width:30vw;
+  height: 1.4vh;
+
   font-family: 'PT Sans', sans-serif;
 
 
@@ -57,10 +59,10 @@
 }
 #log-in,
 #sign-up{
-  margin-left: 1w;
+  margin-left: 0.5vw;
   color: #fc9003;
-  font-size: 1.5rem;
-  margin-right: 1vw
+  font-size: 1rem;
+  margin-right: 0.5vw
 }
 #log-in:hover,
 #sign-up:hover,

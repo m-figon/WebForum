@@ -8,21 +8,11 @@ class SignIn extends Component{
             account: "",
             password: "",
             passwordType: "password",
-            jsonArray: []
         }
         this.inputChange=this.inputChange.bind(this);
         this.passwordTypeChange=this.passwordTypeChange.bind(this);
         this.displayData=this.displayData.bind(this);
         this.propertyChange=this.propertyChange.bind(this);
-    }
-    componentDidMount(){
-        fetch('http://localhost:3000/users')
-        .then(response => response.json())
-        .then(json =>{ 
-            this.setState({
-                jsonArray: json
-            });
-        })
     }
     inputChange(type,e){
         this.setState({
@@ -56,7 +46,7 @@ class SignIn extends Component{
     }
     displayData(){
         var correctFlag=false;
-        this.state.jsonArray.map(item=>{
+        this.props.json.map(item=>{
             if(this.state.account==item.user && this.state.password==item.password){
                 this.propertyChange("#account","correct-ac",null);
                 this.propertyChange("#incorrect-ac","correct-ac",null);
@@ -64,6 +54,7 @@ class SignIn extends Component{
                 this.propertyChange("#password","correct-pass",null);
                 this.propertyChange("#incorrect-pass","correct-pass",null);
                 correctFlag=true;
+                this.props.loginHandler2(this.state.account,"Log out");
             }
         }) 
         if(correctFlag==false){

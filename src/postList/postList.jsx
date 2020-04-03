@@ -9,20 +9,10 @@ class PostList extends Component{
         super();
         this.state=({
             comments: true,
-            jsonArray: [],
         })
         this.commentsSwitch = this.commentsSwitch.bind(this);
         this.commentSwitchOutside=this.commentSwitchOutside.bind(this);
         this.pointsChange = this.pointsChange.bind(this);
-    }
-    componentDidMount(){
-        fetch('http://localhost:3000/posts')
-        .then(response => response.json())
-        .then(json =>{ 
-            this.setState({
-                jsonArray: json
-            });
-        })
     }
     commentsSwitch(){
         if(this.state.comments===true){
@@ -44,7 +34,7 @@ class PostList extends Component{
         //console.log(value);
         //console.log(this.state.jsonArray[value])
         this.setState(state => {
-            const list = state.jsonArray.map((item) => {
+            const list = this.props.json.map((item) => {
               if (item.id == value) {
                   if(operation=="+"){
                     item.points +=0.5;
@@ -61,7 +51,7 @@ class PostList extends Component{
 }
     render(){
         
-        const display= this.state.jsonArray.map((item)=>{
+        const display= this.props.json.map((item)=>{
             if((this.props.selectValue==="none" && this.props.searchValue==item.title)){
                 return(<div class="post">
                 <div class="post-desc">
@@ -82,7 +72,7 @@ class PostList extends Component{
                     <img onClick={()=>this.pointsChange(item.id,"-")} src={down}/>
                     <img onClick={this.commentsSwitch} src={commentImg}/>
                 </div>
-                <Comments commentState={this.state.comments} idNumber={item.id}json={this.state.jsonArray}/>
+                <Comments commentState={this.state.comments} idNumber={item.id}json={this.props.json}/>
             </div>);
             }
             else if(this.props.selectValue==="section" || (this.props.selectValue==="curiosities" && item.section=="curiosities") || 

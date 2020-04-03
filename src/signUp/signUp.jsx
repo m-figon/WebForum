@@ -9,23 +9,13 @@ class SignUp extends Component{
             password: "",
             password2: "",
             email: "",
-            passwordType: "password",
-            jsonArray: []
+            passwordType: "password"
         }
         this.inputChange=this.inputChange.bind(this);
         this.passwordTypeChange=this.passwordTypeChange.bind(this);
         this.displayData=this.displayData.bind(this);
         this.propertyChange=this.propertyChange.bind(this);
         this.validateInput=this.validateInput.bind(this);
-    }
-    componentDidMount(){
-        fetch('http://localhost:3000/users')
-        .then(response => response.json())
-        .then(json =>{ 
-            this.setState({
-                jsonArray: json
-            });
-        })
     }
     inputChange(type,e){
         this.setState({
