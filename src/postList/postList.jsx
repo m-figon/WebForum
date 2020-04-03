@@ -13,6 +13,7 @@ class PostList extends Component{
         })
         this.commentsSwitch = this.commentsSwitch.bind(this);
         this.commentSwitchOutside=this.commentSwitchOutside.bind(this);
+        this.pointsChange = this.pointsChange.bind(this);
     }
     componentDidMount(){
         fetch('http://localhost:3000/posts')
@@ -39,6 +40,25 @@ class PostList extends Component{
         this.props.clickOnSign(value);
         //link to comments by id
     }
+    pointsChange(value,operation){
+        //console.log(value);
+        //console.log(this.state.jsonArray[value])
+        this.setState(state => {
+            const list = state.jsonArray.map((item) => {
+              if (item.id == value) {
+                  if(operation=="+"){
+                    item.points +=0.5;
+                  }else if(operation=="-"){
+                    item.points -=0.5;
+                  }
+                
+              }
+            });
+            return {
+                list,
+              };
+    })
+}
     render(){
         
         const display= this.state.jsonArray.map((item)=>{
@@ -58,8 +78,8 @@ class PostList extends Component{
                     <img src={item.src}/>
                 </div>
                 <div class="post-buttons">
-                    <img src={up}/>
-                    <img src={down}/>
+                    <img onClick={()=>this.pointsChange(item.id,"+")} src={up}/>
+                    <img onClick={()=>this.pointsChange(item.id,"-")} src={down}/>
                     <img onClick={this.commentsSwitch} src={commentImg}/>
                 </div>
                 <Comments commentState={this.state.comments} idNumber={item.id}json={this.state.jsonArray}/>
@@ -84,8 +104,8 @@ class PostList extends Component{
                     <img src={item.src}/>
                 </div>
                 <div class="post-buttons">
-                    <img src={up}/>
-                    <img src={down}/>
+                    <img onClick={()=>this.pointsChange(item.id,"+")} src={up}/>
+                    <img onClick={()=>this.pointsChange(item.id,"-")} src={down}/>
                     <img onClick={()=>this.props.clickOnSign(item.title)} src={commentImg}/>
                 </div>
             </div>
