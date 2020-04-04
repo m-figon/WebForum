@@ -21,7 +21,7 @@ class Trending extends Component{
         const display= this.state.jsonArray.map((item)=>{
             if(item.points>1000){
                 return(
-                    <div class="trend" onClick={()=>this.props.clickHandler(item.title)}>
+                    <div class="trend" onClick={()=>this.props.trendingClickHandler(item.title)}>
                     <img src={item.src}/>
                     <div class="img-txt">
                         <h2>{item.user}</h2>

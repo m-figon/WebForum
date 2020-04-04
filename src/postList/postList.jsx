@@ -34,7 +34,7 @@ class PostList extends Component{
         //console.log(value);
         //console.log(this.state.jsonArray[value])
         this.setState(state => {
-            const list = this.props.json.map((item) => {
+            const list = this.props.postListjson.map((item) => {
               if (item.id == value) {
                   if(operation=="+"){
                     item.points +=0.5;
@@ -51,7 +51,7 @@ class PostList extends Component{
 }
     render(){
         
-        const display= this.props.json.map((item)=>{
+        const display= this.props.postListjson.map((item)=>{
             if((this.props.selectValue==="none" && this.props.searchValue==item.title)){
                 return(<div class="post">
                 <div class="post-desc">
@@ -72,7 +72,7 @@ class PostList extends Component{
                     <img onClick={()=>this.pointsChange(item.id,"-")} src={down}/>
                     <img onClick={this.commentsSwitch} src={commentImg}/>
                 </div>
-                <Comments commentState={this.state.comments} idNumber={item.id}json={this.props.json}/>
+                <Comments logedAcc={this.props.logedName} commentState={this.state.comments} idNumber={item.id} json={this.props.postListjson}/>
             </div>);
             }
             else if(this.props.selectValue==="section" || (this.props.selectValue==="curiosities" && item.section=="curiosities") || 

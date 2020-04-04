@@ -97,7 +97,6 @@ class App extends Component {
       logedAs: "",
       loginOrRegister: "Log in"
     })
-    console.log("login out");
   }
     loginChange(value,operation){
       this.setState({
@@ -106,12 +105,19 @@ class App extends Component {
       })
     }
   render(){
-      if(this.state.login===false && this.state.register===false && this.state.section!="none"){
+    const props1 = {operation: this.state.loginOrRegister, logedAc: this.state.logedAs, logoutHandler: this.logout, loginHandler: this.loginRegisterStateChange,
+    reset: this.resetState, searchSubmitHandler: this.searchButton, selectValue: this.state.section, searchValue: this.state.search, selectHandler: this.selectChange,
+     searchHandler: this.searchBarChange};
+
+    const props2 = { logedName: this.state.logedAs, postListjson: this.state.jsonArrayPosts, clickOnSign: this.searchClick, clickHandler: this.sectionClick, selectValue: this.state.section,
+      searchValue: this.state.tmpSearch, searchState: this.state.searchSubmit}  
+
+    if(this.state.login===false && this.state.register===false && this.state.section!="none"){
         return (
           <div className="App">
-            <TopBar operation={this.state.loginOrRegister} logedAc={this.state.logedAs} logoutHandler={this.logout} loginHandler={this.loginRegisterStateChange} reset={this.resetState} searchSubmitHandler={this.searchButton} selectValue={this.state.section} searchValue={this.state.search} selectHandler={this.selectChange} searchHandler={this.searchBarChange}/>
-            <Trending clickHandler={this.searchClick}/>
-            <PostList json={this.state.jsonArrayPosts} clickOnSign={this.searchClick} clickHandler={this.sectionClick} selectValue={this.state.section} searchValue={this.state.tmpSearch} searchState={this.state.searchSubmit}/>
+            <TopBar {...props1} />
+            <Trending trendingClickHandler={this.searchClick}/>
+            <PostList {...props2} />
           </div>
         );
       }
@@ -119,9 +125,9 @@ class App extends Component {
           return (
             <>
             <div className="dark-App">
-              <TopBar operation={this.state.loginOrRegister} logedAc={this.state.logedAs} logoutHandler={this.logout} loginHandler={this.loginRegisterStateChange} reset={this.resetState} searchSubmitHandler={this.searchButton} selectValue={this.state.section} searchValue={this.state.search} selectHandler={this.selectChange} searchHandler={this.searchBarChange}/>
-              <Trending clickHandler={this.searchClick}/>
-              <PostList json={this.state.jsonArrayPosts} clickHandler={this.sectionClick} selectValue={this.state.section} searchValue={this.state.tmpSearch} searchState={this.state.searchSubmit}/>
+              <TopBar {...props1} />
+              <Trending trendingClickHandler={this.searchClick}/>
+              <PostList {...props2} />
             </div>
             <SignIn loginHandler2={this.loginChange} json={this.state.jsonArrayForm} loginHandler={this.loginRegisterStateChange} login={this.state.login}/>
             </>
@@ -131,9 +137,9 @@ class App extends Component {
         return (
           <>
           <div className="dark-App">
-            <TopBar operation={this.state.loginOrRegister} logedAc={this.state.logedAs} logoutHandler={this.logout} loginHandler={this.loginRegisterStateChange} reset={this.resetState} searchSubmitHandler={this.searchButton} selectValue={this.state.section} searchValue={this.state.search} selectHandler={this.selectChange} searchHandler={this.searchBarChange}/>
-            <Trending clickHandler={this.searchClick}/>
-            <PostList json={this.state.jsonArrayPosts} clickHandler={this.sectionClick} selectValue={this.state.section} searchValue={this.state.tmpSearch} searchState={this.state.searchSubmit}/>
+            <TopBar {...props1} />
+            <Trending trendingClickHandler={this.searchClick}/>
+            <PostList {...props2} />
           </div>
           <SignUp json={this.state.jsonArrayForm} loginHandler={this.loginRegisterStateChange} register={this.state.register}/>
           </>
@@ -142,8 +148,8 @@ class App extends Component {
     if(this.state.section=="none"){
       return (
         <div className="App">
-          <TopBar operation={this.state.loginOrRegister} logedAc={this.state.logedAs} logoutHandler={this.logout} loginHandler={this.loginRegisterStateChange} reset={this.resetState} searchSubmitHandler={this.searchButton} selectValue={this.state.section} searchValue={this.state.search} selectHandler={this.selectChange} searchHandler={this.searchBarChange}/>
-          <PostList json={this.state.jsonArrayPosts} clickHandler={this.sectionClick} selectValue={this.state.section} searchValue={this.state.tmpSearch} searchState={this.state.searchSubmit}/>
+          <TopBar {...props1} />
+          <PostList {...props2} />
         </div>
       );
     }

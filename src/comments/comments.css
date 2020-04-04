@@ -12,3 +12,17 @@
     margin-left: 1rem;
 
 }
+
+.users-comment input{
+    margin-left: 1.5vw;
+    height: 1.5rem;
+    width: 40vw;
+    margin-bottom: 1vh;
+}
+.users-comment button{
+    height: 1.85rem;
+    margin-bottom: 1vh;
+    background-color: #fc9003;
+    color: white;
+    border: 1.5px solid black;
+}

@@ -2,6 +2,18 @@ import React from 'react';
 import { Component } from 'react';
 import './comments.css';
 class Comments extends Component{
+    constructor(){
+        super();
+        this.state={
+            commentValue: ""
+        }
+        this.commentValueChange=this.commentValueChange.bind(this);
+    }
+    commentValueChange(e){
+        this.setState({
+            commentValue: e.target.value
+        })
+    }
     render(){
         //console.log(this.props.json[this.props.idNumber].comments);
         var display;
@@ -17,10 +29,26 @@ class Comments extends Component{
         }else{
             display=null;
         }
+        if(this.props.logedAcc!=""){
+            return(
+                <>
+               {display}
+               <div class="users-comment">
+                <h1>{this.props.logedAcc}</h1>
+               <input type="text" onChange={(e)=>this.commentValueChange(e)} value={this.state.commentValue}/>
+               <button>Comment</button>
+
+               </div>
+               </>
+            );
+        }else{
+            return(
+                <>
+               {display}
+               </>
+            );
+        }
         
-        return(
-           display
-        );
     }
     
 }

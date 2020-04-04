@@ -6,23 +6,18 @@ class TopBar extends Component{
     constructor(){
         super();
         this.state={
-            handler: ()=>this.props.loginHandler("login",true)
+            
         }
-
+        this.clickFun = this.clickFun.bind(this);
     }
-    componentDidUpdate(){
+    clickFun(){
         if(this.props.operation=="Log out"){
-            setInterval(()=>{
-                this.setState({
-                    handler: ()=>this.props.logoutHandler()
-                })
-            },500);
+            this.props.logoutHandler();
+            console.log("log out handler");
         }else if(this.props.operation=="Log in"){
-            setInterval(()=>{
-                this.setState({
-                    handler: ()=>this.props.loginHandler("login",true)
-                })
-            },500);
+            this.props.loginHandler("login",true);
+            console.log("log in handler");
+
         }
     }
     render(){
@@ -44,7 +39,7 @@ class TopBar extends Component{
                         <option value="films">films</option>
                     </select>
                     <h1 id="log-in">{this.props.logedAc}</h1>
-                    <h1 id="log-in" onClick={this.state.handler}>{this.props.operation}</h1>
+                    <h1 id="log-in" onClick={this.clickFun}>{this.props.operation}</h1>
                     <h1 id="sign-up" onClick={()=>this.props.loginHandler("register",true)}>Sign up</h1>
 
                 </div>
