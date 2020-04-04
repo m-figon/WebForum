@@ -36,7 +36,7 @@ class Comments extends Component{
                <div class="users-comment">
                 <h1>{this.props.logedAcc}</h1>
                <input type="text" onChange={(e)=>this.commentValueChange(e)} value={this.state.commentValue}/>
-               <button>Comment</button>
+               <button onClick={()=>this.props.commentHandler(this.state.commentValue,this.props.idNumber)}>Comment</button>
 
                </div>
                </>

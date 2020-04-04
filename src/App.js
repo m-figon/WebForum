@@ -13,6 +13,8 @@ class App extends Component {
     this.state={
       section: "section",
       tmpSearch: "",
+      comment: "",
+      id: 0,
       search: "",
       login: false,
       logedAs: "",
@@ -31,6 +33,7 @@ class App extends Component {
     this.loginRegisterStateChange = this.loginRegisterStateChange.bind(this);
     this.loginChange = this.loginChange.bind(this);
     this.logout = this.logout.bind(this);
+    this.changeCommentAndId=this.changeCommentAndId.bind(this);
 
   }
   componentDidMount(){
@@ -104,12 +107,20 @@ class App extends Component {
         loginOrRegister: operation
       })
     }
+    changeCommentAndId(value1, value2){
+      this.setState({
+        comment: value1,
+        id: value2
+      })
+      console.log(value1,value2);
+
+    }
   render(){
     const props1 = {operation: this.state.loginOrRegister, logedAc: this.state.logedAs, logoutHandler: this.logout, loginHandler: this.loginRegisterStateChange,
     reset: this.resetState, searchSubmitHandler: this.searchButton, selectValue: this.state.section, searchValue: this.state.search, selectHandler: this.selectChange,
      searchHandler: this.searchBarChange};
 
-    const props2 = { logedName: this.state.logedAs, postListjson: this.state.jsonArrayPosts, clickOnSign: this.searchClick, clickHandler: this.sectionClick, selectValue: this.state.section,
+    const props2 = {commentAndIdHandler: this.changeCommentAndId, logedName: this.state.logedAs, postListjson: this.state.jsonArrayPosts, clickOnSign: this.searchClick, clickHandler: this.sectionClick, selectValue: this.state.section,
       searchValue: this.state.tmpSearch, searchState: this.state.searchSubmit}  
 
     if(this.state.login===false && this.state.register===false && this.state.section!="none"){
