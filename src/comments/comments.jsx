@@ -8,10 +8,17 @@ class Comments extends Component{
             commentValue: ""
         }
         this.commentValueChange=this.commentValueChange.bind(this);
+        this.enterComment=this.enterComment.bind(this);
     }
     commentValueChange(e){
         this.setState({
             commentValue: e.target.value
+        })
+    }
+    enterComment(value1,value2){
+        this.props.commentHandler(value1,value2);
+        this.setState({
+            commentValue: ""
         })
     }
     render(){
@@ -19,9 +26,10 @@ class Comments extends Component{
         var display;
         if(this.props.commentState==true){
             display=this.props.json[this.props.idNumber].comments.map((item)=>{
+                
                 return(
                     <div class="comment">
-                    <h2>{item.user}</h2>
+                    <h2>{item.user} posted {this.props.commentDate(item.date)}</h2>
                     <h1>{item.content}</h1>
                     </div>
                 );
@@ -36,7 +44,7 @@ class Comments extends Component{
                <div class="users-comment">
                 <h1>{this.props.logedAcc}</h1>
                <input type="text" onChange={(e)=>this.commentValueChange(e)} value={this.state.commentValue}/>
-               <button onClick={()=>this.props.commentHandler(this.state.commentValue,this.props.idNumber)}>Comment</button>
+               <button onClick={()=>this.enterComment(this.state.commentValue,this.props.idNumber)}>Comment</button>
 
                </div>
                </>

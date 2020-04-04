@@ -13,7 +13,9 @@ class PostList extends Component{
             tmpObject: {
                 id: 0,
                 user: 0,
-                content: ""
+                content: "",
+                currentTime: "",
+                tmpTime: ""
             },
             idValue: 0
         })
@@ -21,7 +23,7 @@ class PostList extends Component{
         this.commentSwitchOutside=this.commentSwitchOutside.bind(this);
         this.pointsChange = this.pointsChange.bind(this);
         this.addCommentValue = this.addCommentValue.bind(this);
-
+        this.calculateDate = this.calculateDate.bind(this);
     }
     commentsSwitch(){
         if(this.state.comments===true){
@@ -84,15 +86,45 @@ class PostList extends Component{
               };
     })
     }
-    
+    calculateDate(value){
+        var currentDate = new Date();
+        var postDate = new Date(value);
+        var dateDiference = Math.round((currentDate.getTime()-postDate.getTime())/86400000);
+        if(dateDiference===0){
+            dateDiference=Math.round((currentDate.getTime()-postDate.getTime())/3600000);
+            if(dateDiference==1){
+                dateDiference+=" hour ago";
+            }else{
+                dateDiference+=" hours ago";
+            }
+            return dateDiference;
+        }else if(dateDiference>0 && dateDiference<=31){
+            if(dateDiference==1){
+                dateDiference+=" day ago";
+            }else{
+                dateDiference+=" days ago";
+            }
+            return dateDiference;
+        }else if(dateDiference>31){
+            dateDiference=Math.round((currentDate.getTime()-postDate.getTime())/2592000000);
+            if(dateDiference==1){
+                dateDiference+=" month ago";
+            }else{
+                dateDiference+=" months ago";
+            }
+            return dateDiference;
+        }
+    }
     render(){
         
         const display= this.props.postListjson.map((item)=>{
+            
+            
             if((this.props.selectValue==="none" && this.props.searchValue==item.title)){
                 return(<div class="post">
                 <div class="post-desc">
                     <div class="left">
-                        <h1>{item.title} by {item.user}</h1>
+                        <h1>{item.title} by {item.user} posted {this.calculateDate(item.date)}</h1>
                     </div>
                     <div class="right">
                         <h2 id="section" onClick={()=>this.props.clickHandler(item.section)}>{item.section}</h2>
@@ -108,7 +140,7 @@ class PostList extends Component{
                     <img onClick={()=>this.pointsChange(item.id,"-")} src={down}/>
                     <img onClick={this.commentsSwitch} src={commentImg}/>
                 </div>
-                <Comments commentHandler={this.addCommentValue} idNumber={item.id} logedAcc={this.props.logedName} commentState={this.state.comments} idNumber={item.id} json={this.props.postListjson}/>
+                <Comments commentDate={this.calculateDate} commentHandler={this.addCommentValue} idNumber={item.id} logedAcc={this.props.logedName} commentState={this.state.comments} idNumber={item.id} json={this.props.postListjson}/>
             </div>);
             }
             else if(this.props.selectValue==="section" || (this.props.selectValue==="curiosities" && item.section=="curiosities") || 
@@ -118,7 +150,7 @@ class PostList extends Component{
                 return(<div class="post">
                 <div class="post-desc">
                     <div class="left">
-                        <h1 id="post-title" onClick={()=>this.props.clickOnSign(item.title)}>{item.title} by {item.user}</h1>
+                        <h1 id="post-title" onClick={()=>this.props.clickOnSign(item.title)}>{item.title} by {item.user} posted {this.calculateDate(item.date)}</h1>
                     </div>
                     <div class="right">
                         <h2 id="section" onClick={()=>this.props.clickHandler(item.section)}>{item.section}</h2>
