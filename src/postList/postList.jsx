@@ -20,7 +20,6 @@ class PostList extends Component{
             idValue: 0
         })
         this.commentsSwitch = this.commentsSwitch.bind(this);
-        this.commentSwitchOutside=this.commentSwitchOutside.bind(this);
         this.pointsChange = this.pointsChange.bind(this);
         this.addCommentValue = this.addCommentValue.bind(this);
         this.calculateDate = this.calculateDate.bind(this);
@@ -37,17 +36,13 @@ class PostList extends Component{
         }
         console.log(this.state.comments);
     }
-    commentSwitchOutside(value){
-        this.props.clickOnSign(value);
-        //link to comments by id
-    }
     addCommentValue(value1,value2){
         this.setState({
             commentValue: value1,
             idValue: value2,
             
         })
-        this.props.commentAndIdHandler(value1,value2);
+        this.props.setStateHandler("comment",value1,"id",value2);
         //console.log(this.props.postListjson[value2].comments);
         const newArray =this.props.postListjson[value2].comments.concat( {
             id: 10,
@@ -127,7 +122,7 @@ class PostList extends Component{
                         <h1>{item.title} by {item.user} posted {this.calculateDate(item.date)}</h1>
                     </div>
                     <div class="right">
-                        <h2 id="section" onClick={()=>this.props.clickHandler(item.section)}>{item.section}</h2>
+                        <h2 id="section" onClick={()=>this.props.setStateHandler("section",item.section)}>{item.section}</h2>
                         <h2>{item.points} Points {item.commentsQuantity} Comments</h2>
                     </div>
                 </div>
@@ -150,10 +145,10 @@ class PostList extends Component{
                 return(<div class="post">
                 <div class="post-desc">
                     <div class="left">
-                        <h1 id="post-title" onClick={()=>this.props.clickOnSign(item.title)}>{item.title} by {item.user} posted {this.calculateDate(item.date)}</h1>
+                        <h1 id="post-title" onClick={()=>this.props.setStateHandler("section","none","tmpSearch",item.title)}>{item.title} by {item.user} posted {this.calculateDate(item.date)}</h1>
                     </div>
                     <div class="right">
-                        <h2 id="section" onClick={()=>this.props.clickHandler(item.section)}>{item.section}</h2>
+                        <h2 id="section" onClick={()=>this.props.setStateHandler("section",item.section)}>{item.section}</h2>
                         <h2>{item.points} Points {item.commentsQuantity} Comments</h2>
                     </div>
                 </div>
@@ -164,12 +159,11 @@ class PostList extends Component{
                 <div class="post-buttons">
                     <img onClick={()=>this.pointsChange(item.id,"+")} src={up}/>
                     <img onClick={()=>this.pointsChange(item.id,"-")} src={down}/>
-                    <img onClick={()=>this.props.clickOnSign(item.title)} src={commentImg}/>
+                    <img onClick={()=>this.props.setStateHandler("section","none","tmpSearch",item.title)} src={commentImg}/>
                 </div>
             </div>
             );
             }
-            
         });
         if(this.props.selectValue==="none"){
             return(

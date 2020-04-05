@@ -24,17 +24,9 @@ class App extends Component {
       jsonArrayPosts: [],
       jsonArrayForm: []
     };
-    this.selectChange = this.selectChange.bind(this);
-    this.searchBarChange = this.searchBarChange.bind(this);
+    this.selectOrInputChange = this.selectOrInputChange.bind(this);
     this.searchButton = this.searchButton.bind(this);
-    this.searchClick = this.searchClick.bind(this);
-    this.resetState = this.resetState.bind(this);
-    this.sectionClick = this.sectionClick.bind(this);
-    this.loginRegisterStateChange = this.loginRegisterStateChange.bind(this);
-    this.loginChange = this.loginChange.bind(this);
-    this.logout = this.logout.bind(this);
-    this.changeCommentAndId=this.changeCommentAndId.bind(this);
-
+    this.setStateChange = this.setStateChange.bind(this);
   }
   componentDidMount(){
     console.log("App.js mount");
@@ -53,26 +45,17 @@ class App extends Component {
           });
       })
   }
-  selectChange(e){
+  selectOrInputChange(value,e){
     this.setState({
-      section: e.target.value
-    })
-    console.log(this.state.section);
-  }
-  searchBarChange(e){
-    this.setState({
-        search: e.target.value
+      [value]: e.target.value
     })
   }
-  sectionClick(value){
+  setStateChange(type1,value1, type2, value2, type3,value3){
     this.setState({
-      section: value
-  })
-  }
-  searchClick(value){
-    this.setState({
-      section: "none",
-      tmpSearch: value
+      [type1]: value1,
+      [type2]: value2,
+      [type3]: value3,
+
   })
   }
   searchButton(){
@@ -83,51 +66,18 @@ class App extends Component {
     })
     }
   }
-  resetState(){
-    this.setState({
-      section: "section",
-      tmpSearch: "",
-      search: ""
-  })
-  }
-  loginRegisterStateChange(type,value){
-      this.setState({
-        [type]: value
-      })
-  }
-  logout(){
-    this.setState({
-      logedAs: "",
-      loginOrRegister: "Log in"
-    })
-  }
-    loginChange(value,operation){
-      this.setState({
-        logedAs: value,
-        loginOrRegister: operation
-      })
-    }
-    changeCommentAndId(value1, value2){
-      this.setState({
-        comment: value1,
-        id: value2
-      })
-      console.log(value1,value2);
-
-    }
   render(){
-    const props1 = {operation: this.state.loginOrRegister, logedAc: this.state.logedAs, logoutHandler: this.logout, loginHandler: this.loginRegisterStateChange,
-    reset: this.resetState, searchSubmitHandler: this.searchButton, selectValue: this.state.section, searchValue: this.state.search, selectHandler: this.selectChange,
-     searchHandler: this.searchBarChange};
+    const props1 = {operation: this.state.loginOrRegister, logedAc: this.state.logedAs, setStateHandler: this.setStateChange,
+     searchSubmitHandler: this.searchButton, selectValue: this.state.section, searchValue: this.state.search, selectOrInputHandler: this.selectOrInputChange};
 
-    const props2 = {commentAndIdHandler: this.changeCommentAndId, logedName: this.state.logedAs, postListjson: this.state.jsonArrayPosts, clickOnSign: this.searchClick, clickHandler: this.sectionClick, selectValue: this.state.section,
+    const props2 = {setStateHandler: this.setStateChange, logedName: this.state.logedAs, postListjson: this.state.jsonArrayPosts, setStateHandler: this.setStateChange, selectValue: this.state.section,
       searchValue: this.state.tmpSearch, searchState: this.state.searchSubmit}  
 
     if(this.state.login===false && this.state.register===false && this.state.section!="none"){
         return (
           <div className="App">
             <TopBar {...props1} />
-            <Trending trendingClickHandler={this.searchClick}/>
+            <Trending setStateHandler={this.setStateChange}/>
             <PostList {...props2} />
           </div>
         );
@@ -137,10 +87,10 @@ class App extends Component {
             <>
             <div className="dark-App">
               <TopBar {...props1} />
-              <Trending trendingClickHandler={this.searchClick}/>
+              <Trending setStateHandler={this.setStateChange}/>
               <PostList {...props2} />
             </div>
-            <SignIn loginHandler2={this.loginChange} json={this.state.jsonArrayForm} loginHandler={this.loginRegisterStateChange} login={this.state.login}/>
+            <SignIn json={this.state.jsonArrayForm} setStateHandler={this.setStateChange} login={this.state.login}/>
             </>
           );
       }
@@ -149,10 +99,10 @@ class App extends Component {
           <>
           <div className="dark-App">
             <TopBar {...props1} />
-            <Trending trendingClickHandler={this.searchClick}/>
+            <Trending setStateHandler={this.setStateChange}/>
             <PostList {...props2} />
           </div>
-          <SignUp json={this.state.jsonArrayForm} loginHandler={this.loginRegisterStateChange} register={this.state.register}/>
+          <SignUp json={this.state.jsonArrayForm} setStateHandler={this.setStateChange} register={this.state.register}/>
           </>
         );
     }

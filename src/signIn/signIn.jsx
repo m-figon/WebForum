@@ -54,7 +54,7 @@ class SignIn extends Component{
                 this.propertyChange("#password","correct-pass",null);
                 this.propertyChange("#incorrect-pass","correct-pass",null);
                 correctFlag=true;
-                this.props.loginHandler2(this.state.account,"Log out");
+                this.props.setStateHandler("logedAs",this.state.account,"loginOrRegister","Log out");
             }
         }) 
         if(correctFlag==false){
@@ -73,7 +73,7 @@ class SignIn extends Component{
                 <div class="registration">
                 <div id="login" class="app-form">
                     <div class="cancel-button">
-                        <button  onClick={()=>this.props.loginHandler("login",false)}>X</button>
+                        <button  onClick={()=>this.props.setStateHandler("login",false)}>X</button>
                     </div>
                 <form id="form">
                 <div class="one-line">

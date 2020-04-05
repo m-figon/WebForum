@@ -72,7 +72,7 @@ class SignUp extends Component{
                 <div class="registration">
                 <div id="register" class="app-form">
                     <div class="cancel-button">
-                        <button  onClick={()=>this.props.loginHandler("register",false)}>X</button>
+                        <button  onClick={()=>this.props.setStateHandler("register",false)}>X</button>
                     </div>
                 <form id="form">
                 <div class="one-line">
