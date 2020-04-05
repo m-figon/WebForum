@@ -30,23 +30,18 @@
   height: 100%;
 }
 .middle img{
-  height: 2.6vh;
+  height: 2.2vh;
 }
 .middle img:hover{
   cursor: pointer;
 }
 .top-bar input{
-  height: 2vh;
+  width:30vw;
+  height: 1.4vh;
+  font-family: 'PT Sans', sans-serif;
   background-color: #e6e6e6;
   border: black 0.5px solid;
   padding: 1%;
-}
-.top-bar input{
-  width:30vw;
-  height: 1.4vh;
-
-  font-family: 'PT Sans', sans-serif;
-
 
 }
 .right{
@@ -110,4 +105,34 @@
       transform: rotate(360deg);
     }
   }
-  
+  @media (max-width:1700px){
+    #log-in,
+   #sign-up{
+    font-size: 0.9rem;
+    }
+    .top-bar h1{
+        font-size: 1.2rem;
+    }
+    .top-bar input{
+      height: 1.1vh;     
+    }
+    .middle img{
+      height: 1.6vh;
+    }
+}
+@media (max-width:1200px){
+  #log-in,
+  #sign-up{
+  font-size: 0.7rem;
+  }
+  .top-bar h1{
+    font-size: 1rem;
+  }
+  .top-bar input{
+    height: 1.3vh; 
+    width: 25vw;
+  }
+  .middle img{
+    height: 1.2vh;
+  }
+}

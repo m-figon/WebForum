@@ -112,18 +112,16 @@ class PostList extends Component{
     }
     render(){
         
-        const display= this.props.postListjson.map((item)=>{
-            
-            
+        const display= this.props.postListjson.map((item)=>{            
             if((this.props.selectValue==="none" && this.props.searchValue==item.title)){
                 return(<div class="post">
                 <div class="post-desc">
                     <div class="left">
                         <h1>{item.title} by {item.user} posted {this.calculateDate(item.date)}</h1>
                     </div>
-                    <div class="right">
+                    <div id="right">
                         <h2 id="section" onClick={()=>this.props.setStateHandler("section",item.section)}>{item.section}</h2>
-                        <h2>{item.points} Points {item.commentsQuantity} Comments</h2>
+                        <h2>{item.points} Points {item.comments.length} Comments</h2>
                     </div>
                 </div>
                 <p>{item.post}</p>
@@ -147,9 +145,9 @@ class PostList extends Component{
                     <div class="left">
                         <h1 id="post-title" onClick={()=>this.props.setStateHandler("section","none","tmpSearch",item.title)}>{item.title} by {item.user} posted {this.calculateDate(item.date)}</h1>
                     </div>
-                    <div class="right">
+                    <div id="right">
                         <h2 id="section" onClick={()=>this.props.setStateHandler("section",item.section)}>{item.section}</h2>
-                        <h2>{item.points} Points {item.commentsQuantity} Comments</h2>
+                        <h2>{item.points} Points {item.comments.length} Comments</h2>
                     </div>
                 </div>
                 <p>{item.post}</p>

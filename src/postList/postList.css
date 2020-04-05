@@ -89,9 +89,10 @@
     margin-left: 0.5vw;
     margin-right: 0.5vw;
   }
-  .right{
+  #right{
       display: flex;
       justify-content: flex-end;
+      margin-right:10px;
   }
   .left{
     display: flex;
@@ -105,4 +106,15 @@
 }
 .post-buttons img:hover{
     cursor: pointer;
+}
+@media (max-width:1600px){
+    .post-list-sign h1,
+    .post h1,
+    .post p,
+    .post h2{
+        font-size: 0.7rem;
+    }
+    .post-list-sign h1{
+        font-size: 1.2rem;
+    }
 }

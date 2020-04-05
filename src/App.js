@@ -66,6 +66,7 @@ class App extends Component {
     })
     }
   }
+  
   render(){
     const props1 = {operation: this.state.loginOrRegister, logedAc: this.state.logedAs, setStateHandler: this.setStateChange,
      searchSubmitHandler: this.searchButton, selectValue: this.state.section, searchValue: this.state.search, selectOrInputHandler: this.selectOrInputChange};
@@ -102,7 +103,7 @@ class App extends Component {
             <Trending setStateHandler={this.setStateChange}/>
             <PostList {...props2} />
           </div>
-          <SignUp json={this.state.jsonArrayForm} setStateHandler={this.setStateChange} register={this.state.register}/>
+          <SignUp  json={this.state.jsonArrayForm} setStateHandler={this.setStateChange} register={this.state.register}/>
           </>
         );
     }

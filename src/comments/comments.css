@@ -26,3 +26,11 @@
     color: white;
     border: 1.5px solid black;
 }
+@media (max-width:1600px){
+    .comment h1{
+        font-size: 0.7rem;
+    }
+    .comment h2{
+        font-size: 0.7rem;
+    }
+}
