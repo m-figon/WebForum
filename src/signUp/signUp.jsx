@@ -12,11 +12,6 @@ class SignUp extends Component{
             passwordType: "password",
             tmpJson: ""
         }
-        this.inputChange=this.inputChange.bind(this);
-        this.passwordTypeChange=this.passwordTypeChange.bind(this);
-        this.displayData=this.displayData.bind(this);
-        this.propertyChange=this.propertyChange.bind(this);
-        this.validateInput=this.validateInput.bind(this);
     }
     inputChange(type,e){
         this.setState({
@@ -62,23 +57,26 @@ class SignUp extends Component{
         }
     }
     displayData(){
+        this.validateInput(this.state.account.match(/^[a-zA-Z0-9\.\-_]{4,10}$/)==null,"account","correct-ac","incorrect-ac","visibleTooltip1","hiddenTooltip1");
+        this.validateInput(this.state.email.match(/^[a-z0-9\._\-]+@[a-z0-9\.\-]+\.[a-z]{2,4}$/)==null,"email","correct-email","incorrect-email","visibleTooltip2","hiddenTooltip2");
+        this.validateInput(this.state.password.match(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\.\-_@$!%*#?&])[A-Za-z\d\.\-_@$!%*#?&]{8,13}$/)==null,"password","correct-pass","incorrect-pass","visibleTooltip3","hiddenTooltip3");
+        this.validateInput((this.state.password2!==this.state.password) || (this.state.password2===""),"password2","correct-pass2","incorrect-pass2","visibleTooltip4","hiddenTooltip4");
         if(this.validateInput(this.state.account.match(/^[a-zA-Z0-9\.\-_]{4,10}$/)==null,"account","correct-ac","incorrect-ac","visibleTooltip1","hiddenTooltip1")&&
         this.validateInput(this.state.email.match(/^[a-z0-9\._\-]+@[a-z0-9\.\-]+\.[a-z]{2,4}$/)==null,"email","correct-email","incorrect-email","visibleTooltip2","hiddenTooltip2")&&
         this.validateInput(this.state.password.match(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\.\-_@$!%*#?&])[A-Za-z\d\.\-_@$!%*#?&]{8,13}$/)==null,"password","correct-pass","incorrect-pass","visibleTooltip3","hiddenTooltip3")&&
-        this.validateInput((this.state.password2!=this.state.password) || (this.state.password2==""),"password2","correct-pass2","incorrect-pass2","visibleTooltip4","hiddenTooltip4")
+        this.validateInput((this.state.password2!==this.state.password) || (this.state.password2===""),"password2","correct-pass2","incorrect-pass2","visibleTooltip4","hiddenTooltip4")
         ){
-            
             const newArray =this.props.json.concat( {
                 id: this.props.json.length,
                 user: this.state.account,
                 password: this.state.password
             });
             this.props.setStateHandler("jsonArrayForm",newArray);
-            console.log(this.props.json);
+            //console.log(this.props.json);
         }
     }
     render(){
-        if(this.props.register==false){
+        if(!this.props.register){
             return(null);
         }else{
             return(
@@ -115,7 +113,7 @@ class SignUp extends Component{
                     <div id="hiddenTooltip3">Please enter correct password</div>
                     </div>
                   </div>
-                  <button type="button" id="show" onClick={this.passwordTypeChange}>SHOW</button>
+                  <button type="button" id="show" onClick={()=>this.passwordTypeChange()}>SHOW</button>
                   <div class="one-line">
                     <div class="left">
                     <h1>confirm password</h1>
@@ -127,7 +125,7 @@ class SignUp extends Component{
                   </div>
                   </form>
                   
-                <button onClick={this.displayData}>Login</button>
+                <button onClick={()=>this.displayData()}>Login</button>
                 </div>
                 </div>
             );

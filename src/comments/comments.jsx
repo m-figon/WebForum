@@ -1,63 +1,63 @@
 import React from 'react';
 import { Component } from 'react';
 import './comments.css';
-class Comments extends Component{
-    constructor(){
+class Comments extends Component {
+    constructor() {
         super();
-        this.state={
+        this.state = {
             commentValue: ""
         }
-        this.commentValueChange=this.commentValueChange.bind(this);
-        this.enterComment=this.enterComment.bind(this);
+        this.commentValueChange = this.commentValueChange.bind(this);
+        this.enterComment = this.enterComment.bind(this);
     }
-    commentValueChange(e){
+    commentValueChange(e) {
         this.setState({
             commentValue: e.target.value
         })
     }
-    enterComment(value1,value2){
-        this.props.commentHandler(value1,value2);
+    enterComment(value1, value2) {
+        this.props.commentHandler(value1, value2);
         this.setState({
             commentValue: ""
         })
     }
-    render(){
+    render() {
         //console.log(this.props.json[this.props.idNumber].comments);
         var display;
-        if(this.props.commentState==true){
-            display=this.props.json[this.props.idNumber].comments.map((item)=>{
-                
-                return(
+        if (this.props.commentState) {
+            display = this.props.json[this.props.idNumber].comments.map((item) => {
+
+                return (
                     <div class="comment">
-                    <h2>{item.user} posted {this.props.commentDate(item.date)}</h2>
-                    <h1>{item.content}</h1>
+                        <h2>{item.user} posted {this.props.commentDate(item.date)}</h2>
+                        <h1>{item.content}</h1>
                     </div>
                 );
-    });
-        }else{
-            display=null;
+            });
+        } else {
+            display = null;
         }
-        if(this.props.logedAcc!=""){
-            return(
+        if (this.props.logedAcc !== "") {
+            return (
                 <>
-               {display}
-               <div class="users-comment">
-                <h1>{this.props.logedAcc}</h1>
-               <input type="text" onChange={(e)=>this.commentValueChange(e)} value={this.state.commentValue}/>
-               <button onClick={()=>this.enterComment(this.state.commentValue,this.props.idNumber)}>Comment</button>
+                    {display}
+                    <div class="users-comment">
+                        <h1>{this.props.logedAcc}</h1>
+                        <input type="text" onChange={(e) => this.commentValueChange(e)} value={this.state.commentValue} />
+                        <button onClick={() => this.enterComment(this.state.commentValue, this.props.idNumber)}>Comment</button>
 
-               </div>
-               </>
+                    </div>
+                </>
             );
-        }else{
-            return(
+        } else {
+            return (
                 <>
-               {display}
-               </>
+                    {display}
+                </>
             );
         }
-        
+
     }
-    
+
 }
 export default Comments
