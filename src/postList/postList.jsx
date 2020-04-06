@@ -131,7 +131,7 @@ class PostList extends Component {
         const display = this.props.postListjson.map((item1) => {
             if ((this.props.selectValue === "none" && this.props.searchValue === item1.title)) {
                 return (<div class="post">
-                    <MySubComponent item={item1}/>
+                    <MySubComponent item={item1} />
                     <Comments commentDate={this.calculateDate} commentHandler={this.addCommentValue} idNumber={item1.id} logedAcc={this.props.logedName} commentState={this.state.comments} json={this.props.postListjson} />
                 </div>);
             }
@@ -140,7 +140,7 @@ class PostList extends Component {
                 (this.props.selectValue === "food" && item1.section === "food") ||
                 (this.props.selectValue === "films" && item1.section === "films")) {
                 return (<div class="post">
-                    <MySubComponent item={item1}/>
+                    <MySubComponent item={item1} />
                 </div>
                 );
             }

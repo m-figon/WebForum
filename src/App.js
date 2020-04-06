@@ -77,43 +77,63 @@ class App extends Component {
       searchValue: this.state.tmpSearch, searchState: this.state.searchSubmit
     }
     const MySubComponent = () => {
-          return(
-            <>
-            <TopBar {...props1} />
+      return (
+        <>
+          <TopBar {...props1} />
           <Trending json={this.state.jsonArrayPosts} setStateHandler={this.setStateChange} />
           <PostList {...props2} />
-          </>
-          );
-  }
+        </>
+      );
+    }
     if (!this.state.login && !this.state.register && this.state.section !== "none") {
       return (
         <div className="App">
-          <MySubComponent/>
+          <MySubComponent />
         </div>
       );
     }
-    else if (this.state.login) {
+    else if (this.state.login && this.state.section !== "none") {
       return (
         <>
           <div className="dark-App">
-          <MySubComponent/>
+            <MySubComponent />
           </div>
           <SignIn json={this.state.jsonArrayForm} setStateHandler={this.setStateChange} login={this.state.login} />
         </>
       );
     }
-    else if (this.state.register) {
+    else if (this.state.login && this.state.section === "none") {
       return (
         <>
           <div className="dark-App">
-          <MySubComponent/>
-
+          <TopBar {...props1} />
+          <PostList {...props2} />
+          </div>
+          <SignIn json={this.state.jsonArrayForm} setStateHandler={this.setStateChange} login={this.state.login} />
+        </>
+      );
+    }
+    else if (this.state.register && this.state.section !== "none") {
+      return (
+        <>
+          <div className="dark-App">
+            <MySubComponent />
+          </div>
+          <SignUp json={this.state.jsonArrayForm} setStateHandler={this.setStateChange} register={this.state.register} />
+        </>
+      );
+    }else if (this.state.register && this.state.section === "none") {
+      return (
+        <>
+          <div className="dark-App">
+          <TopBar {...props1} />
+          <PostList {...props2} />
           </div>
           <SignUp json={this.state.jsonArrayForm} setStateHandler={this.setStateChange} register={this.state.register} />
         </>
       );
     }
-    if (this.state.section === "none") {
+    if (this.state.section === "none" && !this.state.register && !this.state.login) {
       return (
         <div className="App">
           <TopBar {...props1} />
