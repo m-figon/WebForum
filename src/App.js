@@ -76,13 +76,19 @@ class App extends Component {
       setStateHandler: this.setStateChange, logedName: this.state.logedAs, postListjson: this.state.jsonArrayPosts, selectValue: this.state.section,
       searchValue: this.state.tmpSearch, searchState: this.state.searchSubmit
     }
-
+    const MySubComponent = () => {
+          return(
+            <>
+            <TopBar {...props1} />
+          <Trending json={this.state.jsonArrayPosts} setStateHandler={this.setStateChange} />
+          <PostList {...props2} />
+          </>
+          );
+  }
     if (!this.state.login && !this.state.register && this.state.section !== "none") {
       return (
         <div className="App">
-          <TopBar {...props1} />
-          <Trending json={this.state.jsonArrayPosts} setStateHandler={this.setStateChange} />
-          <PostList {...props2} />
+          <MySubComponent/>
         </div>
       );
     }
@@ -90,9 +96,7 @@ class App extends Component {
       return (
         <>
           <div className="dark-App">
-            <TopBar {...props1} />
-            <Trending json={this.state.jsonArrayPosts} setStateHandler={this.setStateChange} />
-            <PostList {...props2} />
+          <MySubComponent/>
           </div>
           <SignIn json={this.state.jsonArrayForm} setStateHandler={this.setStateChange} login={this.state.login} />
         </>
@@ -102,9 +106,8 @@ class App extends Component {
       return (
         <>
           <div className="dark-App">
-            <TopBar {...props1} />
-            <Trending json={this.state.jsonArrayPosts} setStateHandler={this.setStateChange} />
-            <PostList {...props2} />
+          <MySubComponent/>
+
           </div>
           <SignUp json={this.state.jsonArrayForm} setStateHandler={this.setStateChange} register={this.state.register} />
         </>
