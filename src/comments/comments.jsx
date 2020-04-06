@@ -7,8 +7,6 @@ class Comments extends Component {
         this.state = {
             commentValue: ""
         }
-        this.commentValueChange = this.commentValueChange.bind(this);
-        this.enterComment = this.enterComment.bind(this);
     }
     commentValueChange(e) {
         this.setState({

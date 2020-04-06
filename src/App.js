@@ -81,7 +81,7 @@ class App extends Component {
       return (
         <div className="App">
           <TopBar {...props1} />
-          <Trending setStateHandler={this.setStateChange} />
+          <Trending json={this.state.jsonArrayPosts} setStateHandler={this.setStateChange} />
           <PostList {...props2} />
         </div>
       );
@@ -91,7 +91,7 @@ class App extends Component {
         <>
           <div className="dark-App">
             <TopBar {...props1} />
-            <Trending setStateHandler={this.setStateChange} />
+            <Trending json={this.state.jsonArrayPosts} setStateHandler={this.setStateChange} />
             <PostList {...props2} />
           </div>
           <SignIn json={this.state.jsonArrayForm} setStateHandler={this.setStateChange} login={this.state.login} />
@@ -103,7 +103,7 @@ class App extends Component {
         <>
           <div className="dark-App">
             <TopBar {...props1} />
-            <Trending setStateHandler={this.setStateChange} />
+            <Trending json={this.state.jsonArrayPosts} setStateHandler={this.setStateChange} />
             <PostList {...props2} />
           </div>
           <SignUp json={this.state.jsonArrayForm} setStateHandler={this.setStateChange} register={this.state.register} />

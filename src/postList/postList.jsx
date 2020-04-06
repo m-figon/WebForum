@@ -79,31 +79,27 @@ class PostList extends Component {
         })
     }
     calculateDate(value) {
+        var dateDiference;
+        function addEnding(value1,value2){
+            if (dateDiference === 1) {
+                dateDiference += value1;
+            } else {
+                dateDiference += value2;
+            }
+        }
         var currentDate = new Date();
         var postDate = new Date(value);
-        var dateDiference = Math.round((currentDate.getTime() - postDate.getTime()) / 86400000);
+        dateDiference = Math.round((currentDate.getTime() - postDate.getTime()) / 86400000);
         if (dateDiference === 0) {
             dateDiference = Math.round((currentDate.getTime() - postDate.getTime()) / 3600000);
-            if (dateDiference === 1) {
-                dateDiference += " hour ago";
-            } else {
-                dateDiference += " hours ago";
-            }
+            addEnding(" hour ago"," hours ago");
             return dateDiference;
         } else if (dateDiference > 0 && dateDiference <= 31) {
-            if (dateDiference === 1) {
-                dateDiference += " day ago";
-            } else {
-                dateDiference += " days ago";
-            }
+            addEnding(" day ago"," days ago");
             return dateDiference;
         } else if (dateDiference > 31) {
             dateDiference = Math.round((currentDate.getTime() - postDate.getTime()) / 2592000000);
-            if (dateDiference === 1) {
-                dateDiference += " month ago";
-            } else {
-                dateDiference += " months ago";
-            }
+            addEnding(" month ago"," months ago");
             return dateDiference;
         }
     }
