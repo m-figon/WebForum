@@ -26,23 +26,22 @@ class App extends Component {
     this.selectOrInputChange = this.selectOrInputChange.bind(this);
     this.searchButton = this.searchButton.bind(this);
     this.setStateChange = this.setStateChange.bind(this);
+    
+  }
+  jsonFetch(http,array){
+    fetch(http)
+    .then(response => response.json())
+    .then(json => {
+      this.setState({
+        [array]: json
+      });
+    })
   }
   componentDidMount() {
+    
     console.log("App.js mount");
-    fetch('http://localhost:3000/posts')
-      .then(response => response.json())
-      .then(json => {
-        this.setState({
-          jsonArrayPosts: json
-        });
-      })
-    fetch('http://localhost:3000/users')
-      .then(response => response.json())
-      .then(json => {
-        this.setState({
-          jsonArrayForm: json
-        });
-      })
+    this.jsonFetch('http://localhost:3000/posts','jsonArrayPosts');
+    this.jsonFetch('http://localhost:3000/users','jsonArrayForm');
   }
   selectOrInputChange(value, e) {
     this.setState({

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from "react-dom";
 import '../signIn/signIn.css';
+import InputForm from "./inputForm.jsx";
 class SignUp extends Component {
     constructor() {
         super();
@@ -12,6 +13,7 @@ class SignUp extends Component {
             passwordType: "password",
             tmpJson: ""
         }
+        this.inputChange = this.inputChange.bind(this);
     }
     inputChange(type, e) {
         this.setState({
@@ -86,43 +88,12 @@ class SignUp extends Component {
                             <button onClick={() => this.props.setStateHandler("register", false)}>X</button>
                         </div>
                         <form id="form">
-                            <div class="one-line">
-                                <div class="left">
-                                    <h1>account name</h1>
-                                </div>
-                                <div class="right">
-                                    <input id="account" type="text" onChange={(e) => this.inputChange("account", e)} value={this.state.account} />
-                                    <div id="hiddenTooltip1">Please enter correct account name</div>
-                                </div>
-                            </div>
-                            <div class="one-line">
-                                <div class="left">
-                                    <h1>e-mail adress</h1>
-                                </div>
-                                <div class="right">
-                                    <input id="email" type="text" onChange={(e) => this.inputChange("email", e)} value={this.state.email} />
-                                    <div id="hiddenTooltip2">Please enter correct email adress</div>
-                                </div>
-                            </div>
-                            <div class="one-line">
-                                <div class="left">
-                                    <h1>password</h1>
-                                </div>
-                                <div class="right">
-                                    <input id="password" onChange={(e) => this.inputChange("password", e)} type={this.state.passwordType} value={this.state.password} />
-                                    <div id="hiddenTooltip3">Please enter correct password</div>
-                                </div>
-                            </div>
+                            <InputForm display="account name" id="account" type="text" value={this.state.account} inputChange={this.inputChange} tooltipId="hiddenTooltip1" tooltip="Please enter correct account name"/>
+                            <InputForm display="e-mail adress" id="email" type="text" value={this.state.email} inputChange={this.inputChange} tooltipId="hiddenTooltip2" tooltip="Please enter correct email adress"/>
+                            <InputForm display="password" id="password" type={this.state.passwordType} value={this.state.password} inputChange={this.inputChange} tooltipId="hiddenTooltip3" tooltip="Please enter correct password"/>
+                            <InputForm display="confirm password" id="password2" type={this.state.passwordType} value={this.state.password2} inputChange={this.inputChange} tooltipId="hiddenTooltip4" tooltip="Please confirm your password"/>
                             <button type="button" id="show" onClick={() => this.passwordTypeChange()}>SHOW</button>
-                            <div class="one-line">
-                                <div class="left">
-                                    <h1>confirm password</h1>
-                                </div>
-                                <div class="right">
-                                    <input id="password2" onChange={(e) => this.inputChange("password2", e)} type={this.state.passwordType} value={this.state.password2} />
-                                    <div id="hiddenTooltip4">Please confirm your password</div>
-                                </div>
-                            </div>
+
                         </form>
 
                         <button onClick={() => this.displayData()}>Login</button>

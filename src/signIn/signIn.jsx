@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from "react-dom";
 import './signIn.css';
+import InputForm from '../signUp/inputForm.jsx'
 class SignIn extends Component {
     constructor() {
         super();
@@ -9,6 +10,7 @@ class SignIn extends Component {
             password: "",
             passwordType: "password",
         }
+        this.inputChange = this.inputChange.bind(this);
     }
     inputChange(type, e) {
         this.setState({
@@ -72,23 +74,8 @@ class SignIn extends Component {
                             <button onClick={() => this.props.setStateHandler("login", false)}>X</button>
                         </div>
                         <form id="form">
-                            <div class="one-line">
-                                <div class="left">
-                                    <h1>account name</h1>
-                                </div>
-                                <div class="right">
-                                    <input id="account" type="text" onChange={(e) => this.inputChange("account", e)} value={this.state.account} />
-                                    <div id="hiddenTooltip1">Please enter correct account name and password</div>
-                                </div>
-                            </div>
-                            <div class="one-line">
-                                <div class="left">
-                                    <h1>password</h1>
-                                </div>
-                                <div class="right">
-                                    <input id="password" onChange={(e) => this.inputChange("password", e)} type={this.state.passwordType} value={this.state.password} />
-                                </div>
-                            </div>
+                            <InputForm display="account name" id="account" type="text" value={this.state.account} inputChange={this.inputChange} tooltipId="hiddenTooltip1" tooltip="Please enter correct account name and password"/>
+                            <InputForm display="password" id="password" type={this.state.passwordType} value={this.state.password} inputChange={this.inputChange} tooltipId="" tooltip=""/>
                             <button type="button" id="show" onClick={() => this.passwordTypeChange()}>SHOW</button>
                         </form>
                         <button onClick={() => this.displayData()}>Login</button>
