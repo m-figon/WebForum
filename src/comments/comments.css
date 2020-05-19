@@ -18,13 +18,16 @@
     height: 1.5rem;
     width: 40vw;
     margin-bottom: 1vh;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
 }
 .users-comment button{
     height: 1.85rem;
     margin-bottom: 1vh;
     background-color: #fc9003;
     color: white;
-    border: 1.5px solid black;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
 }
 @media (max-width:1600px){
     .comment h1{

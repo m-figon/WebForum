@@ -42,6 +42,9 @@ class App extends Component {
     console.log("App.js mount");
     this.jsonFetch('http://localhost:3000/posts','jsonArrayPosts');
     this.jsonFetch('http://localhost:3000/users','jsonArrayForm');
+    setInterval(()=>{
+      this.searchButton()
+    },500)
   }
   selectOrInputChange(value, e) {
     this.setState({

@@ -139,6 +139,12 @@
     height: 1.6vh;
   }
 }
+@media (max-width: 1450px) {
+  #log-in,
+  #sign-up {
+    font-size: 0.9rem;
+  }
+}
 @media (max-width: 1200px) {
   #log-in,
   #sign-up {

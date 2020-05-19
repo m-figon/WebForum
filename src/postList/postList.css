@@ -1,6 +1,6 @@
-.post-list-display{
+.post-list-display {
     height: 100vh;
-    width:100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,31 +8,30 @@
     margin-top: 50px;
 }
 .post-list-sign,
-.one-post{
-    width:50%;
+.one-post {
+    width: 50%;
     height: 5vh;
 }
-.post-list-sign{
+.post-list-sign {
     margin-top: 30vh;
 }
-#post-title{
+#post-title {
     cursor: pointer;
 }
-.post-list{
-    
-    width:50%;
+.post-list {
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-.post{
+.post {
     margin-top: 1vh;
     margin-bottom: 1vh;
     border-radius: 5px;
-    border: 1px solid rgba(0, 0, 0,0.15);
+    border: 1px solid rgba(0, 0, 0, 0.15);
     background-color: white;
 }
-.post img{
+.post img {
     width: 30vw;
     height: 40vh;
     border-radius: 5px;
@@ -41,86 +40,83 @@
 .post-list-sign h1,
 .post h1,
 .post p,
-.post h2{
+.post h2 {
     font-size: 1rem;
     color: #2b2b2b;
 }
-.post-list-sign h1{
+.post-list-sign h1 {
     margin-top: 2.5vh;
 
     color: #fc9003;
     font-size: 1.5rem;
-
 }
-#section{
+#section {
     color: #fc9003;
     margin-right: 1vw;
 }
-#section:hover{
+#section:hover {
     color: #fc9003cb;
 }
 .post h1,
-.post p
-{
+.post p {
     margin-left: 1.5vw;
 }
 
-.post-desc{
+.post-desc {
     display: flex;
     padding-top: 2vh;
 }
-.img{
+.img {
     display: flex;
     justify-content: center;
 }
-.post-buttons{
+.post-buttons {
     margin-top: 1vh;
     display: flex;
     justify-content: center;
-    
-    height: 4vh;
 
+    height: 4vh;
 }
-#section:hover{
+#section:hover {
     cursor: pointer;
 }
-.post-buttons button{
+.post-buttons button {
     background-color: #fc9003;
-  color: white;
-    border: black 1.5px solid;
+    color: white;
+    border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 7px;
-    height:80%;
+    height: 80%;
     width: 10%;
     margin-left: 0.5vw;
     margin-right: 0.5vw;
-  }
-  #right{
-      display: flex;
-      justify-content: flex-end;
-      margin-right:10px;
-  }
-  .left{
+}
+#right {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+.left {
     display: flex;
     justify-content: flex-start;
 }
-.post-buttons img{
+.post-buttons img {
     margin-left: 1vw;
     margin-right: 1vw;
     height: 1.3rem;
     width: 1.3rem;
 }
-.post-buttons img:hover{
+.post-buttons img:hover {
     cursor: pointer;
     filter: opacity(85%);
 }
-@media (max-width:1600px){
+@media (max-width: 1600px) {
     .post-list-sign h1,
     .post h1,
     .post p,
-    .post h2{
+    .post h2 {
         font-size: 0.7rem;
     }
-    .post-list-sign h1{
+    .post-list-sign h1 {
         font-size: 1.2rem;
     }
 }
