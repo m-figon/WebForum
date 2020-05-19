@@ -14,7 +14,6 @@
 .trending{
     height: 15vh;
     width:45vw;
-
 }
 .trend:hover{
     cursor: pointer;
@@ -46,20 +45,20 @@
 .img-txt{
     margin-left: 5%;
     margin-right: 5%;
-    margin-top: -50%;
+    margin-top: -40%;
 }
 .trending h1,
 .trending h2{
     position: relative;
     color: #e4e3e3;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     z-index:2;
     margin-top: 0;
     margin-bottom: 0;
 }
 .trending h2{
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 1.5rem;
 
 }
 .trending img{

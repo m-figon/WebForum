@@ -1,27 +1,30 @@
-.top-bar{
-  position:fixed;
-    height:5vh;
-    width: 100vw;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    margin-top: 0;
-    z-index:1
-
+.top-bar {
+  position: fixed;
+  height: 5vh;
+  width: 100vw;
+  background-color: #fafafa;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+  z-index: 1;
 }
-.top-bar h1{
+.top-bar h1 {
   margin-left: 1vw;
-    font-size: 1.5rem;
-    color: #2b2b2b;
+  font-size: 1.5rem;
+  color: #2b2b2b;
 }
-.left{
+.left {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   height: 100%;
   width: 100%;
 }
-.middle{
+.left:hover {
+  cursor: pointer;
+}
+.middle {
   margin-left: -10vw;
   display: flex;
   justify-content: center;
@@ -29,22 +32,28 @@
   width: 100%;
   height: 100%;
 }
-.middle img{
-  height: 2.2vh;
+.middle button {
+  background-color: #00000010;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
 }
-.middle img:hover{
+.middle img {
+  height: 1.9vh;
+}
+.middle img:hover {
   cursor: pointer;
 }
-.top-bar input{
-  width:30vw;
-  height: 1.4vh;
-  font-family: 'PT Sans', sans-serif;
-  background-color: #e6e6e6;
-  border: black 0.5px solid;
+.top-bar input {
+  border-radius: 3px;
+  width: 30vw;
+  height: 0.8vh;
+  font-family: "PT Sans", sans-serif;
+  background-color: #00000010;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  font-family: "Lato", sans-serif;
   padding: 1%;
-
 }
-.right{
+.right {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -53,86 +62,96 @@
   padding-right: 5vw;
 }
 #log-in,
-#sign-up{
+#sign-up {
   margin-left: 0.5vw;
   color: #fc9003;
   font-size: 1rem;
-  margin-right: 0.5vw
+  margin-right: 0.5vw;
+}
+#log-in:hover,
+#sign-up:hover {
+  color: #fc9003d0;
 }
 #log-in:hover,
 #sign-up:hover,
-#title{
+#title:hover {
   cursor: pointer;
 }
-#reset:hover{
-  cursor: pointer;
+#reset{
+  font-family: 'Righteous', cursive;
+  color: #fc9003a8;
 }
-.right button{
-  height:70%;
+#reset:hover {
+  cursor: pointer;
+  color: #fc9003d0;
+}
+.right button {
+  height: 70%;
   width: 20%;
   margin-left: 0.5vw;
   margin-right: 0.5vw;
   border: black 1.5px solid;
   border-radius: 7px;
-
 }
-.right h1{
+.right h1 {
   font-size: 0.7rem;
 }
 .App-logo {
   margin-top: 1vh;
-    margin-left: 2vw;
-    height: 3rem;
-    pointer-events: none;
-  }
-  .right select{
-    width: 10vw;
-    margin-right: 2vw;
-    background-color: #e6e6e6;
-  border: black 0.5px solid;
-  }
-  @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-spin infinite 20s linear;
-    }
-  }
-  
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  @media (max-width:1700px){
-    #log-in,
-   #sign-up{
-    font-size: 0.9rem;
-    }
-    .top-bar h1{
-        font-size: 1.2rem;
-    }
-    .top-bar input{
-      height: 1.1vh;     
-    }
-    .middle img{
-      height: 1.6vh;
-    }
+  margin-left: 2vw;
+  height: 3rem;
+  pointer-events: none;
 }
-@media (max-width:1200px){
-  #log-in,
-  #sign-up{
-  font-size: 0.7rem;
+.right select {
+  width: 10vw;
+  margin-right: 2vw;
+  background-color: #00000010;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  font-family: "Lato", sans-serif;
+  border-radius: 5px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
   }
-  .top-bar h1{
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (max-width: 1700px) {
+  #log-in,
+  #sign-up {
+    font-size: 0.9rem;
+  }
+  .top-bar h1 {
+    font-size: 1.2rem;
+  }
+  .top-bar input {
+    height: 1.1vh;
+  }
+  .middle img {
+    height: 1.6vh;
+  }
+}
+@media (max-width: 1200px) {
+  #log-in,
+  #sign-up {
+    font-size: 0.7rem;
+  }
+  .top-bar h1 {
     font-size: 1rem;
   }
-  .top-bar input{
-    height: 1.3vh; 
+  .top-bar input {
+    height: 1.3vh;
     width: 25vw;
   }
-  .middle img{
+  .middle img {
     height: 1.2vh;
   }
 }

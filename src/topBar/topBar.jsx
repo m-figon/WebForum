@@ -16,9 +16,9 @@ function TopBar(props) {
 
     return (
         <div class="top-bar">
-            <div class="left">
+            <div class="left" onClick={() => props.setStateHandler("section", "section", "tmpSearch", "", "search", "")}>
                 <img src={logo} className="App-logo" alt="logo" />
-                <h1 id="reset" onClick={() => props.setStateHandler("section", "section", "tmpSearch", "", "search", "")}>ReactForum</h1>
+                <h1 id="reset">ReactForum</h1>
             </div>
             <div class="middle">
                 <input type="text" onChange={(e) => props.selectOrInputHandler("search", e)} value={props.searchValue} /><button type="button" onClick={props.searchSubmitHandler}><img src={searchImg} /></button>
