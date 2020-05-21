@@ -119,4 +119,7 @@
     .post-list-sign h1 {
         font-size: 1.2rem;
     }
+    .post-list-display {
+        margin-top: 0px;
+    }
 }

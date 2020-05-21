@@ -83,20 +83,24 @@ class SignUp extends Component {
         } else {
             return (
                 <div class="registration">
-                    <div id="register" class="app-form">
-                        <div class="cancel-button">
-                            <button onClick={() => this.props.setStateHandler("register", false)}>X</button>
-                        </div>
+                    <div class="register-form">
                         <form id="form">
-                            <InputForm display="account name" id="account" type="text" value={this.state.account} inputChange={this.inputChange} tooltipId="hiddenTooltip1" tooltip="Please enter correct account name"/>
-                            <InputForm display="e-mail adress" id="email" type="text" value={this.state.email} inputChange={this.inputChange} tooltipId="hiddenTooltip2" tooltip="Please enter correct email adress"/>
-                            <InputForm display="password" id="password" type={this.state.passwordType} value={this.state.password} inputChange={this.inputChange} tooltipId="hiddenTooltip3" tooltip="Please enter correct password"/>
-                            <InputForm display="confirm password" id="password2" type={this.state.passwordType} value={this.state.password2} inputChange={this.inputChange} tooltipId="hiddenTooltip4" tooltip="Please confirm your password"/>
-                            <button type="button" id="show" onClick={() => this.passwordTypeChange()}>SHOW</button>
+                            <div class="cancel-button-2">
+                                <button onClick={() => this.props.setStateHandler("register", false)}>X</button>
+                            </div>
+                            <InputForm display="account name" id="account" type="text" value={this.state.account} inputChange={this.inputChange} tooltipId="hiddenTooltip1" tooltip="Please enter correct account name" />
+                            <InputForm display="e-mail adress" id="email" type="text" value={this.state.email} inputChange={this.inputChange} tooltipId="hiddenTooltip2" tooltip="Please enter correct email adress" />
+                            <InputForm display="password" id="password" type={this.state.passwordType} value={this.state.password} inputChange={this.inputChange} tooltipId="hiddenTooltip3" tooltip="Please enter correct password" />
+                            <InputForm display="confirm password" id="password2" type={this.state.passwordType} value={this.state.password2} inputChange={this.inputChange} tooltipId="hiddenTooltip4" tooltip="Please confirm your password" />
+                            <button type="button" id="show2" onClick={() => this.passwordTypeChange()}>SHOW</button>
+
+                            <div className="button-div">
+                            <button onClick={() => this.displayData()}>Register</button>
+
+                            </div>
 
                         </form>
 
-                        <button onClick={() => this.displayData()}>Login</button>
                     </div>
                 </div>
             );

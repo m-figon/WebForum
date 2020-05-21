@@ -69,14 +69,15 @@ class SignIn extends Component {
         } else {
             return (
                 <div class="registration">
-                    <div id="login" class="app-form">
-                        <div class="cancel-button">
+                    <div class="login-form">
+                        
+                        <form id="form">
+                        <div class="cancel-button-1">
                             <button onClick={() => this.props.setStateHandler("login", false)}>X</button>
                         </div>
-                        <form id="form">
                             <InputForm display="account name" id="account" type="text" value={this.state.account} inputChange={this.inputChange} tooltipId="hiddenTooltip1" tooltip="Please enter correct account name and password"/>
                             <InputForm display="password" id="password" type={this.state.passwordType} value={this.state.password} inputChange={this.inputChange} tooltipId="" tooltip=""/>
-                            <button type="button" id="show" onClick={() => this.passwordTypeChange()}>SHOW</button>
+                            <button type="button" id="show1" onClick={() => this.passwordTypeChange()}>SHOW</button>
                         </form>
                         <button onClick={() => this.displayData()}>Login</button>
                     </div>

@@ -12,7 +12,6 @@
     height: 5vh;
 }
 .trending{
-    height: 15vh;
     width:45vw;
 }
 .trend:hover{
@@ -37,7 +36,6 @@
     height: 5vh;
 }
 .trending{
-    height: 20vh;
     width:50%;
     display: flex;
     justify-content: space-between;
@@ -45,7 +43,7 @@
 .img-txt{
     margin-left: 5%;
     margin-right: 5%;
-    margin-top: -40%;
+    margin-top: -30%;
 }
 .trending h1,
 .trending h2{
@@ -70,8 +68,8 @@
     position: relative;
 }
 .trending-sign h1{
-    margin-top: 1.5vh;
-    margin-bottom: 1.5vh;
+    margin-top: 0;
+    margin-bottom: 1rem;
 
     color: #fc9003;
     font-size: 1.5rem;

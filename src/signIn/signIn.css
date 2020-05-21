@@ -9,15 +9,18 @@
     align-items: center;
     z-index: 3;
 }
-.cancel-button{
-    
-    position: absolute;
-    margin-left: 17%;
-    margin-top: -18vh;
+.cancel-button-1{
+    position: relative;
+    margin-left: 28rem;
+    margin-top: 0;
 }
-.app-form{
+.cancel-button-2{
+    position: relative;
+    margin-left: 32rem;
+    margin-top: 0;
+}
+.login-form{
     padding: 2rem;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -26,23 +29,27 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    background-size: 70% 70%;
+    background-size: 100% 100%;
     border: 1px solid #fc9003;
-    width:30%;
-    height: 40vh;
+    width:30rem;
+    height: 15rem;
     border-radius: 10px;
 }
-#login{
-    width:40%;
-    height: 35vh;
-}
-#register{
-    width:40%;
-    height: 40vh;
-}
-#form{
-    width:35vw;
-    height: 35vh;
+.register-form{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url("rain.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100% 100%;
+    border: 1px solid #fc9003;
+    width:35rem;
+    height: 25rem;
+    border-radius: 10px;
 }
 #correct-ac,
 #correct-pass,
@@ -74,8 +81,10 @@
     width: 70%;
     height:2rem;
 }
-.app-form input,
-.app-form select{
+.login-form input,
+.login-form select,
+.register-form input,
+.register-form select{
     padding: 0.2rem 0.2rem;
     font-family: 'Lato', sans-serif;
     height:1.5rem;
@@ -89,13 +98,20 @@
 .right input{
     width: 100%;
 }
-.app-form h1{
+.login-form h1,
+.register-form h1{
     display: inline-block;
     color: #2b2b2b;
     font-size: 1.5rem;
     font-family: 'Lato', sans-serif;    
 }
-.app-form button{
+.button-div{
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+.login-form button,
+.register-form button{
     margin: 2rem 0;
     background-color: #fc9003;
     color:#cacaca;
@@ -104,7 +120,8 @@
     border: 1px solid rgba(0, 0, 0,0.15);
     border-radius: 5px;
 }
-.app-form button:hover{
+.login-form button:hover,
+.register-form button:hover{
     cursor: pointer;
     background-color: #fc9003d7;
 }
@@ -113,7 +130,6 @@
     flex-direction: row;
     justify-content: center;
 }
-
 #hiddenTooltip1,
 #hiddenTooltip2,
 #hiddenTooltip3,
@@ -165,12 +181,21 @@
     width:95%;
     height:2rem;
 }
-#show{
+#show1{
     position: absolute;
-    margin-left: 27vw;
+    margin-left: 23rem;
+    margin-top: -2.5rem;
+    width:2.5rem;
+    height: 2rem;
+    padding: 0;
+    font-size: 0.7rem;
+}
+#show2{
+    position: absolute;
+    margin-left: 25.5rem;
     margin-top: -2.6rem;
-    width:3vw;
-    height: 3.6%;
+    width:2.5rem;
+    height: 2rem;
     padding: 0;
     font-size: 0.7rem;
 }
