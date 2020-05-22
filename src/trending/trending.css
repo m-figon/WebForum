@@ -80,7 +80,8 @@
         font-size: 1rem;
     }
     .trending img{
-        height: 15vh;
+        height: 9rem;
+        width: 10rem;
     }
     .trending h1{
         font-size: 0.7rem;

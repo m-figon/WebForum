@@ -55,13 +55,13 @@
 #correct-pass,
 #correct-pass2,
 #correct-email{
-    border: solid #00cf23 2px;
+    border: solid #00cf238a 1.5px;
 }
 #incorrect-ac,
 #incorrect-pass,
 #incorrect-pass2,
 #incorrect-email{
-    border: solid #e90101 2px;
+    border: solid #e901018f 1.5px;
 }
 
 .one-line{
@@ -145,7 +145,7 @@
     visibility: hidden;
     display: block;
     position: absolute;
-    margin-left: 10vw;
+    margin-left: 11rem;
     width: 10rem;
     height: 1.2rem;
     padding: 0.4rem 0.4rem 0.5rem;
@@ -181,6 +181,9 @@
     width:95%;
     height:2rem;
 }
+.one-line{
+    display: flex;
+}
 #show1{
     position: absolute;
     margin-left: 23rem;
@@ -193,7 +196,7 @@
 #show2{
     position: absolute;
     margin-left: 25.5rem;
-    margin-top: -2.6rem;
+    margin-top: 0rem;
     width:2.5rem;
     height: 2rem;
     padding: 0;

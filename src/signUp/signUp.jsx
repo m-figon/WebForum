@@ -10,7 +10,6 @@ class SignUp extends Component {
             password: "",
             password2: "",
             email: "",
-            passwordType: "password",
             tmpJson: ""
         }
         this.inputChange = this.inputChange.bind(this);
@@ -19,17 +18,6 @@ class SignUp extends Component {
         this.setState({
             [type]: e.target.value
         })
-    }
-    passwordTypeChange() {
-        if (this.state.passwordType === "password") {
-            this.setState({
-                passwordType: "text"
-            })
-        } else if (this.state.passwordType === "text") {
-            this.setState({
-                passwordType: "password"
-            })
-        }
     }
     propertyChange(id, idValue, classValue) {
         try {
@@ -84,22 +72,20 @@ class SignUp extends Component {
             return (
                 <div class="registration">
                     <div class="register-form">
-                        <form id="form">
+                        <div id="form">
                             <div class="cancel-button-2">
                                 <button onClick={() => this.props.setStateHandler("register", false)}>X</button>
                             </div>
                             <InputForm display="account name" id="account" type="text" value={this.state.account} inputChange={this.inputChange} tooltipId="hiddenTooltip1" tooltip="Please enter correct account name" />
                             <InputForm display="e-mail adress" id="email" type="text" value={this.state.email} inputChange={this.inputChange} tooltipId="hiddenTooltip2" tooltip="Please enter correct email adress" />
-                            <InputForm display="password" id="password" type={this.state.passwordType} value={this.state.password} inputChange={this.inputChange} tooltipId="hiddenTooltip3" tooltip="Please enter correct password" />
-                            <InputForm display="confirm password" id="password2" type={this.state.passwordType} value={this.state.password2} inputChange={this.inputChange} tooltipId="hiddenTooltip4" tooltip="Please confirm your password" />
-                            <button type="button" id="show2" onClick={() => this.passwordTypeChange()}>SHOW</button>
-
+                            <InputForm display="password" id="password" type="password" value={this.state.password} inputChange={this.inputChange} tooltipId="hiddenTooltip3" tooltip="Please enter correct password" />
+                            <InputForm display="confirm password" id="password2" type="password" value={this.state.password2} inputChange={this.inputChange} tooltipId="hiddenTooltip4" tooltip="Please confirm your password" />
                             <div className="button-div">
                             <button onClick={() => this.displayData()}>Register</button>
 
                             </div>
 
-                        </form>
+                        </div>
 
                     </div>
                 </div>

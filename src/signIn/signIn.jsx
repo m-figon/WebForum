@@ -8,7 +8,6 @@ class SignIn extends Component {
         this.state = {
             account: "",
             password: "",
-            passwordType: "password",
         }
         this.inputChange = this.inputChange.bind(this);
     }
@@ -16,17 +15,6 @@ class SignIn extends Component {
         this.setState({
             [type]: e.target.value
         })
-    }
-    passwordTypeChange() {
-        if (this.state.passwordType === "password") {
-            this.setState({
-                passwordType: "text"
-            })
-        } else if (this.state.passwordType === "text") {
-            this.setState({
-                passwordType: "password"
-            })
-        }
     }
     propertyChange(id, idValue, classValue) {
         try {
@@ -76,8 +64,7 @@ class SignIn extends Component {
                             <button onClick={() => this.props.setStateHandler("login", false)}>X</button>
                         </div>
                             <InputForm display="account name" id="account" type="text" value={this.state.account} inputChange={this.inputChange} tooltipId="hiddenTooltip1" tooltip="Please enter correct account name and password"/>
-                            <InputForm display="password" id="password" type={this.state.passwordType} value={this.state.password} inputChange={this.inputChange} tooltipId="" tooltip=""/>
-                            <button type="button" id="show1" onClick={() => this.passwordTypeChange()}>SHOW</button>
+                            <InputForm display="password" id="password" type="password" value={this.state.password} inputChange={this.inputChange} tooltipId="" tooltip=""/>
                         </form>
                         <button onClick={() => this.displayData()}>Login</button>
                     </div>

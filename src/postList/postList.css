@@ -5,7 +5,7 @@
     flex-direction: column;
     align-items: center;
     position: absolute;
-    margin-top: 50px;
+    margin-top: 5rem;
 }
 .post-list-sign,
 .one-post {
@@ -13,7 +13,7 @@
     height: 5vh;
 }
 .post-list-sign {
-    margin-top: 30vh;
+    margin-top: 15rem;
 }
 #post-title {
     cursor: pointer;
