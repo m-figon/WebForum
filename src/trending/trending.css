@@ -5,15 +5,6 @@
     align-items: center;
     flex-direction: column;
 }
-
-.trending-sign{
-    margin-top: 3vh;
-    width:50%;
-    height: 5vh;
-}
-.trending{
-    width:45vw;
-}
 .trend:hover{
     cursor: pointer;
 }
@@ -32,18 +23,18 @@
 
 .trending-sign{
     margin-top: 3vh;
-    width:50%;
+    width:50rem;
     height: 5vh;
 }
 .trending{
-    width:50%;
+    width:50rem;
     display: flex;
     justify-content: space-between;
 }
 .img-txt{
     margin-left: 5%;
     margin-right: 5%;
-    margin-top: -30%;
+    margin-top: -40%;
 }
 .trending h1,
 .trending h2{
@@ -60,8 +51,8 @@
 
 }
 .trending img{
-    width: 12.5vw;
-    height: 23vh;
+    height: 12rem;
+    width: 13rem;
     text-align: center;
     border-radius: 10px;
     filter: brightness(0.65) blur(1.5px);
@@ -74,16 +65,4 @@
     color: #fc9003;
     font-size: 1.5rem;
 
-}
-@media (max-width:1600px){
-    .trending h2{
-        font-size: 1rem;
-    }
-    .trending img{
-        height: 9rem;
-        width: 10rem;
-    }
-    .trending h1{
-        font-size: 0.7rem;
-    }
 }

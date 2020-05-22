@@ -12,6 +12,6 @@ background-color: #e2e2e2;
 .dark-App{
   filter: brightness(0.65) blur(1.5px);
 }
-input,select{
+input,select,button{
   outline: none;
 }

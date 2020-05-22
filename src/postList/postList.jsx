@@ -63,20 +63,20 @@ class PostList extends Component {
     pointsChange(value, operation) {
         //console.log(value);
         //console.log(this.state.jsonArray[value])
-        this.setState(state => {
-            const list = this.props.postListjson.map((item) => {
-                if (item.id === value) {
-                    if (operation === "+") {
-                        item.points += 0.5;
-                    } else if (operation === "-") {
-                        item.points -= 0.5;
+            this.setState(state => {
+                const list = this.props.postListjson.map((item) => {
+                    if (item.id === value) {
+                        if (operation === "+") {
+                            item.points += 0.5;
+                        } else if (operation === "-") {
+                            item.points -= 0.5;
+                        }
                     }
-                }
-            });
-            return {
-                list,
-            };
-        })
+                });
+                return {
+                    list,
+                };
+            })        
     }
     calculateDate(value) {
         var dateDiference;
@@ -104,6 +104,12 @@ class PostList extends Component {
         }
     }
     render() {
+        let postButtonsId;
+        if(this.props.logedName){
+            postButtonsId="visible-buttons"
+        }else{
+            postButtonsId="hidden-buttons"
+        }
         const MySubComponent = (props) => {
             return (
                 <>
@@ -120,7 +126,7 @@ class PostList extends Component {
                     <div class="img">
                         <img alt="" src={props.item.src} />
                     </div>
-                    <div class="post-buttons">
+                    <div id={postButtonsId} class="post-buttons">
                         <img alt="" onClick={() => this.pointsChange(props.item.id, "+")} src={up} />
                         <img alt="" onClick={() => this.pointsChange(props.item.id, "-")} src={down} />
                         <img alt="" onClick={() => this.props.setStateHandler("section", "none", "tmpSearch", props.item.title)} src={commentImg} />

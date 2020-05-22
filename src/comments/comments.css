@@ -12,11 +12,17 @@
     margin-left: 1rem;
 
 }
-
+.users-comment{
+    display: flex;
+    align-items: center;
+}
+.users-comment h1{
+    margin-top: 0;
+}
 .users-comment input{
     margin-left: 1rem;
     height: 1.5rem;
-    width: 40vw;
+    width: 35rem;
     margin-bottom: 1vh;
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 3px;
@@ -28,12 +34,4 @@
     color: white;
     border-radius: 3px;
     border: 1px solid rgba(0, 0, 0, 0.15);
-}
-@media (max-width:1600px){
-    .comment h1{
-        font-size: 0.7rem;
-    }
-    .comment h2{
-        font-size: 0.7rem;
-    }
 }

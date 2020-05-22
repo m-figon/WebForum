@@ -9,7 +9,7 @@
 }
 .post-list-sign,
 .one-post {
-    width: 50%;
+    width: 50rem;
     height: 5vh;
 }
 .post-list-sign {
@@ -19,24 +19,30 @@
     cursor: pointer;
 }
 .post-list {
-    width: 50%;
+    width: 50rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 .post {
-    margin-top: 1vh;
-    margin-bottom: 1vh;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.15);
     background-color: white;
 }
 .post img {
-    width: 30vw;
-    height: 40vh;
+    width: 30rem;
+    height: 20rem;
+    margin-bottom: 2rem;
     border-radius: 5px;
 }
-
+#visible-buttons{
+    display: flex;
+}
+#hidden-buttons{
+    display: none;
+}
 .post-list-sign h1,
 .post h1,
 .post p,
@@ -109,17 +115,4 @@
     cursor: pointer;
     filter: opacity(85%);
 }
-@media (max-width: 1600px) {
-    .post-list-sign h1,
-    .post h1,
-    .post p,
-    .post h2 {
-        font-size: 0.7rem;
-    }
-    .post-list-sign h1 {
-        font-size: 1.2rem;
-    }
-    .post-list-display {
-        margin-top: 0px;
-    }
-}
+
