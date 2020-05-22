@@ -40,7 +40,7 @@ class SignIn extends Component {
                 this.propertyChange("#password", "correct-pass", null);
                 this.propertyChange("#incorrect-pass", "correct-pass", null);
                 correctFlag = true;
-                this.props.setStateHandler("logedAs", this.state.account, "loginOrRegister", "Log out");
+                this.props.setStateHandler("logedAs", this.state.account, "loginOrRegister", "Log out","login",false);
             }
         })
         if (!correctFlag) {

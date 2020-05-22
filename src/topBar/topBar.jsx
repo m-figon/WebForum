@@ -6,7 +6,7 @@ class TopBar extends Component {
     constructor(){
         super();
         this.state={
-            searched: "Search for channel"
+            searched: "Search for post"
         }
     }
     clickFun() {
@@ -24,7 +24,7 @@ class TopBar extends Component {
         })
     }
     focus(){
-        if(this.state.searched==="Search for channel"){
+        if(this.state.searched==="Search for post"){
             this.setState({
                 searched: ""
             })
@@ -33,14 +33,14 @@ class TopBar extends Component {
     blur(){
         if(this.state.searched==="" || this.state.searched===" "){
             this.setState({
-                searched: "Search for channel"
+                searched: "Search for post"
             })
         }
     }
     render(){
         return (
             <div class="top-bar">
-                <div class="left" onClick={() => this.props.setStateHandler("section", "section", "tmpSearch", "", "search", "")}>
+                <div class="left-part" onClick={() => this.props.setStateHandler("section", "section", "tmpSearch", "", "search", "")}>
                     <img src={logo} className="App-logo" alt="logo" />
                     <h1 id="reset">ReactForum</h1>
                 </div>

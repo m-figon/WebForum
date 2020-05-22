@@ -27,7 +27,7 @@ class Comments extends Component {
 
                 return (
                     <div class="comment">
-                        <h2>{item.user} posted {this.props.commentDate(item.date)}</h2>
+                        <h2>{item.user}{this.props.commentDate(item.date)}</h2>
                         <h1>{item.content}</h1>
                     </div>
                 );
