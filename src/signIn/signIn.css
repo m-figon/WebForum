@@ -1,25 +1,24 @@
-
-.registration{
+.registration {
     position: absolute;
     display: flex;
-    height:100vh;
-    width:100vw;
+    height: 100vh;
+    width: 100vw;
     flex-direction: row;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     z-index: 3;
 }
-.cancel-button-1{
+.cancel-button-1 {
     position: relative;
     margin-left: 28rem;
     margin-top: 0;
 }
-.cancel-button-2{
+.cancel-button-2 {
     position: relative;
     margin-left: 32rem;
     margin-top: 0;
 }
-.login-form{
+.login-form {
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -31,11 +30,11 @@
     background-position: center;
     background-size: 100% 100%;
     border: 1px solid #fc9003;
-    width:30rem;
+    width: 30rem;
     height: 15rem;
     border-radius: 10px;
 }
-.register-form{
+.register-form {
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -47,85 +46,85 @@
     background-position: center;
     background-size: 100% 100%;
     border: 1px solid #fc9003;
-    width:35rem;
+    width: 35rem;
     height: 25rem;
     border-radius: 10px;
 }
 #correct-ac,
 #correct-pass,
 #correct-pass2,
-#correct-email{
+#correct-email {
     border: solid #00cf238a 1.5px;
 }
 #incorrect-ac,
 #incorrect-pass,
 #incorrect-pass2,
-#incorrect-email{
+#incorrect-email {
     border: solid #e901018f 1.5px;
 }
 
-.one-line{
+.one-line {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     margin-top: 2rem;
 }
-.left{
+.left {
     display: flex;
     width: 100%;
-    height:3rem;
+    height: 3rem;
     justify-content: flex-start;
     align-items: center;
 }
-.right{
+.right {
     width: 70%;
-    height:2rem;
+    height: 2rem;
 }
 .login-form input,
 .login-form select,
 .register-form input,
-.register-form select{
+.register-form select {
     padding: 0.2rem 0.2rem;
-    font-family: 'Lato', sans-serif;
-    height:1.5rem;
-    width:90%;
+    font-family: "Lato", sans-serif;
+    height: 1.5rem;
+    width: 90%;
     color: #383838;
     background-color: #e7e7e7;
     font-size: 1.2rem;
-    border: 1px solid rgba(0, 0, 0,0.15);
+    border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 7px;
 }
-.right input{
+.right input {
     width: 100%;
 }
 .login-form h1,
-.register-form h1{
+.register-form h1 {
     display: inline-block;
     color: #2b2b2b;
     font-size: 1.5rem;
-    font-family: 'Lato', sans-serif;    
+    font-family: "Lato", sans-serif;
 }
-.button-div{
-    width:100%;
+.button-div {
+    width: 100%;
     display: flex;
     justify-content: center;
 }
 .login-form button,
-.register-form button{
+.register-form button {
     margin: 2rem 0;
     background-color: #fc9003;
-    color:#cacaca;
-    font-family: 'PT Sans', sans-serif;
+    color: #cacaca;
+    font-family: "PT Sans", sans-serif;
     font-size: 1.2rem;
-    border: 1px solid rgba(0, 0, 0,0.15);
+    border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 5px;
 }
 .login-form button:hover,
-.register-form button:hover{
+.register-form button:hover {
     cursor: pointer;
     background-color: #fc9003d7;
 }
-#submit{
+#submit {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -141,7 +140,7 @@
 #visibleTooltip3,
 #visibleTooltip4,
 #visibleTooltip5,
-#visibleTooltip6{
+#visibleTooltip6 {
     visibility: hidden;
     display: block;
     position: absolute;
@@ -150,55 +149,95 @@
     height: 1.2rem;
     padding: 0.4rem 0.4rem 0.5rem;
     background-color: #fc9003;
-    color:#cacaca;
-    font-family: 'Lato', sans-serif;
+    color: #cacaca;
+    font-family: "Lato", sans-serif;
     font-size: 0.7rem;
     border-radius: 5px;
 }
 #hiddenTooltip5,
 #hiddenTooltip6,
 #visibleTooltip5,
-#visibleTooltip6{
-    margin-top:0rem;
-
+#visibleTooltip6 {
+    margin-top: 0rem;
 }
 #visibleTooltip1,
 #visibleTooltip2,
 #visibleTooltip3,
 #visibleTooltip4,
 #visibleTooltip5,
-#visibleTooltip6{
+#visibleTooltip6 {
     visibility: visible;
 }
 #days,
 #years,
-#months
-{
-    width:32%;
-    height:2rem;
+#months {
+    width: 32%;
+    height: 2rem;
 }
-#countries{
-    width:95%;
-    height:2rem;
+#countries {
+    width: 95%;
+    height: 2rem;
 }
-.one-line{
+.one-line {
     display: flex;
 }
-#show1{
+#show1 {
     position: absolute;
     margin-left: 23rem;
     margin-top: -2.5rem;
-    width:2.5rem;
+    width: 2.5rem;
     height: 2rem;
     padding: 0;
     font-size: 0.7rem;
 }
-#show2{
+#show2 {
     position: absolute;
     margin-left: 25.5rem;
     margin-top: 0rem;
-    width:2.5rem;
+    width: 2.5rem;
     height: 2rem;
     padding: 0;
     font-size: 0.7rem;
+}
+@media only screen and (max-width: 900px) {
+    .login-form {
+        width: 25rem;
+        height: 12rem;
+    }
+    .register-form {
+        width: 27rem;
+        height: 19rem;
+    }
+    .login-form h1,
+    .register-form h1 {
+        font-size: 1.2rem;
+    }
+    .login-form input,
+    .login-form select,
+    .register-form input,
+    .register-form select {
+        height: 1.2rem;
+        width: 90%;
+    }
+    .one-line{
+        margin-top: 1.5vh;
+    }
+    .cancel-button-1 {
+        margin-left: 25rem;
+        margin-top: 0rem;
+    }
+    .cancel-button-2 {
+        margin-left: 26rem;
+        margin-top: 0rem;
+    }
+    .login-form button,
+    .register-form button {
+        margin: 1rem 0;
+        background-color: #fc9003;
+        color: #cacaca;
+        font-family: "PT Sans", sans-serif;
+        font-size: 1.2rem;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 5px;
+    }
 }

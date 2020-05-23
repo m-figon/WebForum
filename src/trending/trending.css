@@ -66,3 +66,23 @@
     font-size: 1.5rem;
 
 }
+@media only screen and (max-width: 900px) {
+    .trending{
+        width:30rem;
+    }
+    .trending img{
+        height: 8rem;
+        width: 8rem;
+    }.trending h2{
+        font-size: 1.2rem;
+    }
+    .trending-sign h1{
+        font-size: 1.2rem;
+    }
+    .img-txt{
+        margin-top: -55%;
+    }
+    .trending-sign{
+        width:30rem;
+    }
+  }

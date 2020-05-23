@@ -37,10 +37,10 @@
     margin-bottom: 2rem;
     border-radius: 5px;
 }
-#visible-buttons{
+#visible-buttons {
     display: flex;
 }
-#hidden-buttons{
+#hidden-buttons {
     display: none;
 }
 .post-list-sign h1,
@@ -67,7 +67,18 @@
 .post p {
     margin-left: 1.5vw;
 }
-
+#right-part {
+    display: flex;
+    width: 15rem;
+}
+#middle-part {
+    display: flex;
+    justify-content: center;
+}
+#right-part h2,
+#middle-part h2 {
+    font-size: 0.9rem;
+}
 .post-desc {
     display: flex;
     padding-top: 2vh;
@@ -101,6 +112,11 @@
     justify-content: flex-end;
     margin-right: 10px;
 }
+#icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-bottom: 1rem;
+}
 .left {
     display: flex;
     justify-content: flex-start;
@@ -116,3 +132,43 @@
     filter: opacity(85%);
 }
 
+@media only screen and (max-width: 900px) {
+    .post-list {
+        width: 30rem;
+    }
+    .post img {
+        width: 20rem;
+        height: 15rem;
+    }
+    .post-list-sign h1,
+    .post h1,
+    .post p,
+    .post h2 {
+        font-size: 0.8rem;
+    }
+    .post-list-sign h1 {
+        font-size: 1.2rem;
+    }
+    .post-buttons {
+        margin-top: 1vh;
+        display: flex;
+        justify-content: center;
+
+        height: 1.8rem;
+    }
+    .post-list-sign,
+    .one-post {
+        width: 30rem;
+    }
+    .post-list-sign {
+        margin-top: 10rem;
+    }
+    #right-part {
+        width: 12rem;
+    }
+
+    #right-part h2,
+    #middle-part h2 {
+        font-size: 0.7rem;
+    }
+}

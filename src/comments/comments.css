@@ -39,3 +39,18 @@
     background-color: #fc9003c2;
     cursor: pointer;
 }
+@media only screen and (max-width: 900px) {
+    .comment h1{
+        font-size: 0.8rem;  
+    }
+    .comment h2{
+        font-size: 0.8rem;  
+    }
+    .users-comment input{
+        height: 1.2rem;
+        width: 17rem;
+    }
+    .users-comment button{
+        height: 1.4rem;
+    }
+  }

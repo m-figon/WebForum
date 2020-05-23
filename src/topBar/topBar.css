@@ -116,12 +116,12 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1400px) {
   #log-in,#sign-up{
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
   #reset{
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
   .middle,.left-part{
     width:60%;
@@ -129,9 +129,33 @@
   .right{
     width:120%;
   }
+  .App-logo{
+    height: 2rem;
+  }
   
 }
-
+@media only screen and (max-width: 900px) {
+  #log-in,#sign-up{
+    font-size: 0.8rem;
+  }
+  #reset{
+    font-size: 1.0rem;
+  }
+  .trending{
+      width:30rem;
+  }
+  .trending img{
+      height: 7rem;
+      width: 8rem;
+  }.trending h2{
+      font-size: 1.2rem;
+  }
+  .trending-sign h1{
+      font-size: 1.2rem;
+  }.top-bar input {
+    width: 8rem;
+  }
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

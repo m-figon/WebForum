@@ -129,8 +129,10 @@ class PostList extends Component {
                         <div class="left">
                             <h1 id="post-title" onClick={() => this.props.setStateHandler("section", "none", "tmpSearch", props.item.title)}>{props.item.title} by {props.item.user}{this.calculateDate(props.item.date)}</h1>
                         </div>
-                        <div id="right">
+                        <div id="middle-part">
                             <h2 id="section" onClick={() => this.props.setStateHandler("section", props.item.section)}>{props.item.section}</h2>
+                        </div>
+                        <div id="right-part">
                             <h2>{props.item.points} Points {props.item.comments.length} Comments</h2>
                         </div>
                     </div>
@@ -139,9 +141,9 @@ class PostList extends Component {
                         <img alt="" src={props.item.src} />
                     </div>
                     <div id={postButtonsId} class="post-buttons">
-                        <img alt="" onClick={() => this.pointsChange(props.item.id, "+")} src={up} />
-                        <img alt="" onClick={() => this.pointsChange(props.item.id, "-")} src={down} />
-                        <img alt="" onClick={() => this.props.setStateHandler("section", "none", "tmpSearch", props.item.title)} src={commentImg} />
+                        <img id="icon" alt="" onClick={() => this.pointsChange(props.item.id, "+")} src={up} />
+                        <img id="icon" alt="" onClick={() => this.pointsChange(props.item.id, "-")} src={down} />
+                        <img id="icon" alt="" onClick={() => this.props.setStateHandler("section", "none", "tmpSearch", props.item.title)} src={commentImg} />
                     </div>
                 </>
             );
