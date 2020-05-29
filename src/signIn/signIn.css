@@ -241,3 +241,14 @@
         border-radius: 5px;
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .cancel-button-1,
+    .cancel-button-2{
+        margin-left: 13rem;
+    }
+    .login-form,
+    .register-form {
+        width: 14rem;
+    }
+}

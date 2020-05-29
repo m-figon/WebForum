@@ -4,9 +4,7 @@ import Trending from './trending/trending.jsx';
 import PostList from './postList/postList.jsx';
 import SignIn from './signIn/signIn.jsx';
 import SignUp from './signUp/signUp.jsx';
-
 import './App.css';
-
 class App extends Component {
   constructor() {
     super();
@@ -40,8 +38,9 @@ class App extends Component {
   componentDidMount() {
     
     console.log("App.js mount");
-    this.jsonFetch('http://localhost:3000/posts','jsonArrayPosts');
-    this.jsonFetch('http://localhost:3000/users','jsonArrayForm');
+    this.jsonFetch('https://rocky-citadel-32862.herokuapp.com/Forum/Posts','jsonArrayPosts');
+    this.jsonFetch('https://rocky-citadel-32862.herokuapp.com/Forum/Users','jsonArrayForm');
+    
     setInterval(()=>{
       this.searchButton()
     },500)

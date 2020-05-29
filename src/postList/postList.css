@@ -172,3 +172,24 @@
         font-size: 0.7rem;
     }
 }
+@media only screen and (max-width: 650px) {
+    .post-list {
+        width: 22rem;
+    }
+    .post-list-sign h1,
+    .post h1,
+    .post p,
+    .post h2 {
+        font-size: 0.7rem;
+    }
+    .post-list-sign h1 {
+        font-size: 1.0rem;
+    }
+    .post-list-sign,
+    .one-post {
+        width: 22rem;
+    }
+    .post-list-sign{
+        margin-top:8rem;
+    }
+}

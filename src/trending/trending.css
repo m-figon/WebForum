@@ -29,7 +29,6 @@
 .trending{
     width:50rem;
     display: flex;
-    justify-content: space-between;
 }
 .img-txt{
     margin-left: 5%;
@@ -84,5 +83,29 @@
     }
     .trending-sign{
         width:30rem;
+    }
+  }
+  @media only screen and (max-width: 650px) {
+    .trending{
+        width:22rem;
+    }
+    .trending img{
+        height: 5.5rem;
+        width: 5.5rem;
+    }
+    .trending h2{
+        font-size: 0.8rem;
+    }
+    .trending-sign h1{
+        font-size: 0.7rem;
+    }
+    .img-txt{
+        margin-top: -70%;
+    }
+    .trending h1{
+        font-size: 0.7rem;
+    }
+    .trending-sign{
+        width:22rem;
     }
   }

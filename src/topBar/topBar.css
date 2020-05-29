@@ -22,7 +22,7 @@
   width: 100%;
 }
 .left:hover,
-,.left-part:hover {
+.left-part:hover {
   cursor: pointer;
 }
 .middle {
@@ -54,7 +54,7 @@
   font-family: "Lato", sans-serif;
   padding-left: 1%;
 }
-.right {
+.right,.right-part {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -86,7 +86,8 @@
   cursor: pointer;
   color: #fc9003d0;
 }
-.right button {
+.right button,
+.right-part button {
   height: 70%;
   width: 20%;
   margin-left: 0.5vw;
@@ -94,7 +95,8 @@
   border: black 1.5px solid;
   border-radius: 7px;
 }
-.right h1 {
+.right h1,
+.right-part h1 {
   font-size: 0.7rem;
 }
 .App-logo {
@@ -103,7 +105,8 @@
   height: 3rem;
   pointer-events: none;
 }
-.right select {
+.right select,
+.right-part select {
   width: 10vw;
   margin-right: 2vw;
   background-color: #00000010;
@@ -126,8 +129,8 @@
   .middle,.left-part{
     width:60%;
   }
-  .right{
-    width:120%;
+  .right-part{
+    width:70%;
   }
   .App-logo{
     height: 2rem;
@@ -141,19 +144,8 @@
   #reset{
     font-size: 1.0rem;
   }
-  .trending{
-      width:30rem;
-  }
-  .trending img{
-      height: 7rem;
-      width: 8rem;
-  }.trending h2{
-      font-size: 1.2rem;
-  }
-  .trending-sign h1{
-      font-size: 1.2rem;
-  }.top-bar input {
-    width: 8rem;
+  .right-part select{
+    width: 5rem;
   }
 }
 @keyframes App-logo-spin {
@@ -164,5 +156,24 @@
     transform: rotate(360deg);
   }
 }
-
+@media only screen and (max-width: 600px) {
+  .left-part{
+    width:35%;
+  }
+  .right-part{
+    width:100%;
+    padding-right: 0;
+  }
+  .right-part{
+    justify-content: center;
+  }
+  #log-in,#sign-up{
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+  }
+  .middle{
+    display: none;
+  }
+  
+}
 

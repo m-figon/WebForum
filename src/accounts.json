@@ -1,0 +1,32 @@
+[
+    {
+      "id": 0,
+      "user": "Gogobatman",
+      "password": "hello1"
+    },
+    {
+      "id": 1,
+      "user": "SlickJoe",
+      "password": "hello2"
+    },
+    {
+      "id": 2,
+      "user": "ReactUser",
+      "password": "hello3"
+    },
+    {
+      "id": 3,
+      "user": "Tarkin",
+      "password": "hello4"
+    },
+    {
+      "id": 4,
+      "user": "HelloThere",
+      "password": "hello5"
+    },
+    {
+      "id": 5,
+      "user": "ReviewGuy",
+      "password": "hello6"
+    }
+  ]

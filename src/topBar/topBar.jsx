@@ -47,7 +47,7 @@ class TopBar extends Component {
                 <div class="middle">
                     <input type="text" onFocus={()=>this.focus()} onBlur={()=>this.blur()} onChange={(e) => this.inputChange(e)} value={this.state.searched} /><button type="button" onClick={()=>{this.props.setStateHandler("search",this.state.searched)}}><img src={searchImg} /></button>
                 </div>
-                <div class="right">
+                <div class="right-part">
                     <select value={this.props.selectValue} onChange={(e) => this.props.selectOrInputHandler("section", e)}>
                         <option value="section">section</option>
                         <option value="curiosities">curiosities</option>
