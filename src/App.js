@@ -4,6 +4,7 @@ import Trending from './trending/trending.jsx';
 import PostList from './postList/postList.jsx';
 import SignIn from './signIn/signIn.jsx';
 import SignUp from './signUp/signUp.jsx';
+import load from './load.gif';
 import './App.css';
 class App extends Component {
   constructor() {
@@ -19,7 +20,8 @@ class App extends Component {
       loginOrRegister: "Log in",
       register: false,
       jsonArrayPosts: [],
-      jsonArrayForm: []
+      jsonArrayForm: [],
+      loadingId: ""
     };
     this.selectOrInputChange = this.selectOrInputChange.bind(this);
     this.searchButton = this.searchButton.bind(this);
@@ -41,8 +43,16 @@ class App extends Component {
     this.jsonFetch('https://rocky-citadel-32862.herokuapp.com/Forum/Posts','jsonArrayPosts');
     this.jsonFetch('https://rocky-citadel-32862.herokuapp.com/Forum/Users','jsonArrayForm');
     
-    setInterval(()=>{
+    let searchInterval=setInterval(()=>{
       this.searchButton()
+    },500)
+    let interval=setInterval(()=>{
+      if(document.readyState==="complete"){
+        this.setState({
+          loadingId: "hidden"
+        })
+        clearInterval(interval);
+      }
     },500)
   }
   selectOrInputChange(value, e) {
@@ -90,6 +100,9 @@ class App extends Component {
       return (
         <div className="App">
           <MySubComponent />
+          <div className="loading" id={this.state.loadingId}>
+          <img src={load}/>
+          </div>
         </div>
       );
     }
