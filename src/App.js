@@ -6,6 +6,8 @@ import SignIn from './signIn/signIn.jsx';
 import SignUp from './signUp/signUp.jsx';
 import load from './load.gif';
 import './App.css';
+import { Route } from 'react-router-dom';
+
 class App extends Component {
   constructor() {
     super();
@@ -26,34 +28,35 @@ class App extends Component {
     this.selectOrInputChange = this.selectOrInputChange.bind(this);
     this.searchButton = this.searchButton.bind(this);
     this.setStateChange = this.setStateChange.bind(this);
-    
+
   }
-  jsonFetch(http,array){
+  jsonFetch(http, array) {
     fetch(http)
-    .then(response => response.json())
-    .then(json => {
-      this.setState({
-        [array]: json
-      });
-    })
+      .then(response => response.json())
+      .then(json => {
+        this.setState({
+          [array]: json
+        });
+      })
   }
   componentDidMount() {
-    
+
     console.log("App.js mount");
-    this.jsonFetch('https://rocky-citadel-32862.herokuapp.com/Forum/Posts','jsonArrayPosts');
-    this.jsonFetch('https://rocky-citadel-32862.herokuapp.com/Forum/Users','jsonArrayForm');
-    
-    let searchInterval=setInterval(()=>{
+    this.jsonFetch('https://rocky-citadel-32862.herokuapp.com/Forum/Posts', 'jsonArrayPosts');
+    this.jsonFetch('https://rocky-citadel-32862.herokuapp.com/Forum/Users', 'jsonArrayForm');
+
+    let searchInterval = setInterval(() => {
       this.searchButton()
-    },500)
-    let interval=setInterval(()=>{
-      if(document.readyState==="complete"){
+    }, 500)
+    let interval = setInterval(() => {
+      if (document.readyState === "complete") {
         this.setState({
           loadingId: "hidden"
         })
         clearInterval(interval);
       }
-    },500)
+    }, 500)
+    console.log(window.location.pathname);
   }
   selectOrInputChange(value, e) {
     this.setState({
@@ -87,21 +90,78 @@ class App extends Component {
       setStateHandler: this.setStateChange, logedName: this.state.logedAs, postListjson: this.state.jsonArrayPosts, selectValue: this.state.section,
       searchValue: this.state.tmpSearch, searchState: this.state.searchSubmit
     }
-    const MySubComponent = () => {
-      return (
-        <>
-          <TopBar {...props1} />
-          <Trending json={this.state.jsonArrayPosts} setStateHandler={this.setStateChange} />
-          <PostList {...props2} />
-        </>
-      );
+    const AllPosts = () => {
+      if (!this.state.login && !this.state.register) {
+        return (
+          <>
+            <TopBar {...props1} />
+            <Trending json={this.state.jsonArrayPosts} setStateHandler={this.setStateChange} />
+            <PostList {...props2} />
+          </>
+        );
+      } else if (this.state.login && !this.state.register) {
+        return (
+          <>
+            <div className="dark-App">
+              <TopBar {...props1} />
+              <Trending json={this.state.jsonArrayPosts} setStateHandler={this.setStateChange} />
+              <PostList {...props2} />
+            </div>
+            <SignIn json={this.state.jsonArrayForm} setStateHandler={this.setStateChange} login={this.state.login} />
+          </>
+        );
+      }
+      else if (!this.state.login && this.state.register) {
+        return (
+          <>
+            <div className="dark-App">
+              <TopBar {...props1} />
+              <Trending json={this.state.jsonArrayPosts} setStateHandler={this.setStateChange} />
+              <PostList {...props2} />
+            </div>
+            <SignUp json={this.state.jsonArrayForm} setStateHandler={this.setStateChange} register={this.state.register} />
+          </>
+        );
+      }
     }
+    const OnePosts = () => {
+      if (!this.state.login && !this.state.register) {
+        return (
+          <>
+            <TopBar {...props1} />
+            <PostList {...props2} />
+          </>
+        );
+      } else if (this.state.login && !this.state.register) {
+        return (
+          <>
+            <div className="dark-App">
+              <TopBar {...props1} />
+              <PostList {...props2} />
+            </div>
+            <SignIn json={this.state.jsonArrayForm} setStateHandler={this.setStateChange} login={this.state.login} />
+          </>
+        );
+      }
+      else if (!this.state.login && this.state.register) {
+        return (
+          <>
+            <div className="dark-App">
+              <TopBar {...props1} />
+              <PostList {...props2} />
+            </div>
+            <SignUp json={this.state.jsonArrayForm} setStateHandler={this.setStateChange} register={this.state.register} />
+          </>
+        );
+      }
+    }
+    /*
     if (!this.state.login && !this.state.register && this.state.section !== "none") {
       return (
         <div className="App">
           <MySubComponent />
           <div className="loading" id={this.state.loadingId}>
-          <img src={load}/>
+            <img src={load} />
           </div>
         </div>
       );
@@ -120,8 +180,8 @@ class App extends Component {
       return (
         <>
           <div className="dark-App">
-          <TopBar {...props1} />
-          <PostList {...props2} />
+            <TopBar {...props1} />
+            <PostList {...props2} />
           </div>
           <SignIn json={this.state.jsonArrayForm} setStateHandler={this.setStateChange} login={this.state.login} />
         </>
@@ -136,12 +196,12 @@ class App extends Component {
           <SignUp json={this.state.jsonArrayForm} setStateHandler={this.setStateChange} register={this.state.register} />
         </>
       );
-    }else if (this.state.register && this.state.section === "none") {
+    } else if (this.state.register && this.state.section === "none") {
       return (
         <>
           <div className="dark-App">
-          <TopBar {...props1} />
-          <PostList {...props2} />
+            <TopBar {...props1} />
+            <PostList {...props2} />
           </div>
           <SignUp json={this.state.jsonArrayForm} setStateHandler={this.setStateChange} register={this.state.register} />
         </>
@@ -155,6 +215,18 @@ class App extends Component {
         </div>
       );
     }
+    */
+
+    return (
+      <>
+        <Route exact path="/" component={AllPosts} />
+        <Route exact path="/:type" component={AllPosts} />
+        <Route exact path="/post/:id" component={OnePosts} />
+        <div className="loading" id={this.state.loadingId}>
+          <img src={load} />
+        </div>
+      </>
+    );
   }
 }
 export default App;

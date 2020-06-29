@@ -4,6 +4,7 @@ import commentImg from './orangeText.png';
 import up from './orangeUp.png';
 import down from './orangeDown.png';
 import Comments from '../comments/comments.jsx';
+import { Link } from 'react-router-dom';
 class PostList extends Component {
     constructor() {
         super();
@@ -22,6 +23,7 @@ class PostList extends Component {
         })
         this.addCommentValue = this.addCommentValue.bind(this);
         this.calculateDate = this.calculateDate.bind(this);
+
     }
     commentsSwitch() {
         if (this.state.comments) {
@@ -64,20 +66,20 @@ class PostList extends Component {
     pointsChange(value, operation) {
         //console.log(value);
         //console.log(this.state.jsonArray[value])
-            this.setState(state => {
-                const list = this.props.postListjson.map((item) => {
-                    if (item.id === value) {
-                        if (operation === "+") {
-                            item.points += 0.5;
-                        } else if (operation === "-") {
-                            item.points -= 0.5;
-                        }
+        this.setState(state => {
+            const list = this.props.postListjson.map((item) => {
+                if (item.id === value) {
+                    if (operation === "+") {
+                        item.points += 0.5;
+                    } else if (operation === "-") {
+                        item.points -= 0.5;
                     }
-                });
-                return {
-                    list,
-                };
-            })        
+                }
+            });
+            return {
+                list,
+            };
+        })
     }
     componentDidMount() {
         setInterval(() => {
@@ -87,13 +89,12 @@ class PostList extends Component {
         }, 5000);
     }
     calculateDate(timeValue) {
-
-        var timeDif,timeSign;
+        var timeDif, timeSign;
         function timeCondition(condition, text, value) {
             if (condition) {
                 timeDif = Math.floor(timeDif / value);
                 if (timeDif === 1) {
-                    timeSign = " posted " + timeDif+ " " + text + " ago"
+                    timeSign = " posted " + timeDif + " " + text + " ago"
                 } else {
                     timeSign = " posted " + timeDif + " " + text + "s ago"
                 }
@@ -107,7 +108,7 @@ class PostList extends Component {
         timeCondition(timeDif >= 86400 && timeDif < 86400 * 30, "day", 86400);
         timeCondition(timeDif >= 86400 * 30 && timeDif < 86400 * 30 * 12, "month", 2592000);
         timeCondition(timeDif >= 86400 * 30 * 12, "year", 2592000 * 12);
-        if(timeDif>=0){
+        if (timeDif >= 0) {
             return (
                 <>
                     {timeSign}
@@ -117,20 +118,28 @@ class PostList extends Component {
     }
     render() {
         let postButtonsId;
-        if(this.props.logedName){
-            postButtonsId="visible-buttons"
-        }else{
-            postButtonsId="hidden-buttons"
+        let postId = window.location.pathname.substr(6, 1);
+        let section = window.location.pathname.substr(1,);
+        let sectionFlag, idFlag;
+        console.log(section);
+        if (this.props.logedName) {
+            postButtonsId = "visible-buttons"
+        } else {
+            postButtonsId = "hidden-buttons"
         }
         const MySubComponent = (props) => {
             return (
                 <>
                     <div class="post-desc">
                         <div class="left">
-                            <h1 id="post-title" onClick={() => this.props.setStateHandler("section", "none", "tmpSearch", props.item.title)}>{props.item.title} by {props.item.user}{this.calculateDate(props.item.date)}</h1>
+                            <Link to={`/post/${props.item.id}`} style={{ textDecoration: 'none' }} activeClassName="active">
+                                <h1 id="post-title">{props.item.title} by {props.item.user}{this.calculateDate(props.item.date)}</h1>
+                            </Link>
                         </div>
                         <div id="middle-part">
-                            <h2 id="section" onClick={() => this.props.setStateHandler("section", props.item.section)}>{props.item.section}</h2>
+                            <Link to={`/${props.item.section}`} style={{ textDecoration: 'none' }} activeClassName="active">
+                                <h2 id="section">{props.item.section}</h2>
+                            </Link>
                         </div>
                         <div id="right-part">
                             <h2>{props.item.points} Points {props.item.comments.length} Comments</h2>
@@ -148,28 +157,56 @@ class PostList extends Component {
                 </>
             );
         }
-        const display = this.props.postListjson.map((item1) => {
-            if ((this.props.selectValue === "none" && this.props.searchValue === item1.title)) {
+        const display1 = this.props.postListjson.map((item1) => {
+            console.log('postId ' + postId);
+            console.log('item id ' + item1.id);
+            if (parseInt(item1.id) === parseInt(postId)) {
+                idFlag = true;
                 return (<div class="post">
                     <MySubComponent item={item1} />
                     <Comments commentDate={this.calculateDate} commentHandler={this.addCommentValue} idNumber={item1.id} logedAcc={this.props.logedName} commentState={this.state.comments} json={this.props.postListjson} />
                 </div>);
             }
-            else if (this.props.selectValue === "section" || (this.props.selectValue === "curiosities" && item1.section === "curiosities") ||
-                (this.props.selectValue === "fit" && item1.section === "fit") ||
-                (this.props.selectValue === "food" && item1.section === "food") ||
-                (this.props.selectValue === "films" && item1.section === "films")) {
+            else {
+                return (null);
+            }
+        });
+        const display2 = this.props.postListjson.map((item1) => {
+            return (<div class="post">
+                <MySubComponent item={item1} />
+            </div>
+            );
+        });
+        //section
+        const display3 = this.props.postListjson.map((item1) => {
+            if (item1.section === section) {
+                sectionFlag = true;
                 return (<div class="post">
                     <MySubComponent item={item1} />
                 </div>
                 );
             }
         });
-        if (this.props.selectValue === "none") {
+        if (idFlag) {
+            console.log(display1);
+            console.log('should work')
             return (
                 <div class="post-list-display">
                     <div class="post-list">
-                        {display}
+                        {display1}
+                    </div>
+                </div>
+            );
+        }
+
+        else if(sectionFlag) {
+            return (
+                <div class="post-list-display">
+                    <div class="post-list-sign">
+                        <h1>Posts</h1>
+                    </div>
+                    <div class="post-list">
+                        {display3}
                     </div>
                 </div>
             );
@@ -181,7 +218,7 @@ class PostList extends Component {
                         <h1>Posts</h1>
                     </div>
                     <div class="post-list">
-                        {display}
+                        {display2}
                     </div>
                 </div>
             );

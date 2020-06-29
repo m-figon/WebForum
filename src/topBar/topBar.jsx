@@ -2,6 +2,7 @@ import "./topBar.css";
 import React, { Component } from 'react';
 import logo from './lollipop.png';
 import searchImg from './search.png';
+import { Link } from 'react-router-dom';
 class TopBar extends Component {
     constructor(){
         super();
@@ -42,7 +43,9 @@ class TopBar extends Component {
             <div class="top-bar">
                 <div class="left-part" onClick={() => this.props.setStateHandler("section", "section", "tmpSearch", "", "search", "")}>
                     <img src={logo} className="App-logo" alt="logo" />
+                    <Link to={`/`} style={{ textDecoration: 'none' }} activeClassName="active">
                     <h1 id="reset">ReactForum</h1>
+                    </Link>
                 </div>
                 <div class="middle">
                     <input type="text" onFocus={()=>this.focus()} onBlur={()=>this.blur()} onChange={(e) => this.inputChange(e)} value={this.state.searched} /><button type="button" onClick={()=>{this.props.setStateHandler("search",this.state.searched)}}><img src={searchImg} /></button>
