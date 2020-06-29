@@ -9,7 +9,6 @@ function Trending(props) {
             return (
                 <div class="trend" onClick={() => props.setStateHandler("section", "none", "tmpSearch", item.title)}>
                     <Link to={`/post/${item.id}`} style={{ textDecoration: 'none' }} activeClassName="active">
-
                         <img alt="" src={item.src} />
                         <div class="img-txt">
                             <h2>{item.user}</h2>

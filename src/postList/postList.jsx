@@ -17,6 +17,7 @@ class PostList extends Component {
                 content: "",
                 currentTime: "",
                 tmpTime: "",
+                posts: []
             },
             idValue: 0,
             currentDate: new Date()
@@ -24,6 +25,32 @@ class PostList extends Component {
         this.addCommentValue = this.addCommentValue.bind(this);
         this.calculateDate = this.calculateDate.bind(this);
 
+    }
+    componentDidMount() {
+        fetch('https://rocky-citadel-32862.herokuapp.com/Forum/Posts')
+            .then(response => response.json())
+            .then(json => {
+                this.setState({
+                    posts: json
+                });
+                console.log(json);
+            })  
+        setInterval(() => {
+            this.setState({
+                currentDate: new Date()
+            });
+            //should be in promise
+                fetch('https://rocky-citadel-32862.herokuapp.com/Forum/Posts')
+            .then(response => response.json())
+            .then(json => {
+                this.setState({
+                    posts: json
+                });
+                //console.log(json);
+            })   
+                     
+        }, 2000);
+        
     }
     commentsSwitch() {
         if (this.state.comments) {
@@ -38,55 +65,64 @@ class PostList extends Component {
         console.log(this.state.comments);
     }
     addCommentValue(value1, value2) {
-        this.setState({
-            commentValue: value1,
-            idValue: value2
-        })
-        this.props.setStateHandler("comment", value1, "id", value2);
-        //console.log(this.props.postListjson[value2].comments);
-        const newArray = this.props.postListjson[value2].comments.concat({
-            id: 10,
+        const newArray = this.state.posts[value2].comments.concat({
+            id: this.state.posts[value2].comments.length,
             user: this.props.logedName,
             content: value1,
             date: new Date()
         });
-        //console.log(newArray);
-        this.setState(state => {
-            const list = this.props.postListjson.map((item) => {
-                if (item.id === value2) {
-                    item.comments = newArray;
-                }
-            });
-            return {
-                list,
-            };
+        this.state.posts.map((item) => {
+            if (item.id === value2) {
+                fetch('https://rocky-citadel-32862.herokuapp.com/Forum/Posts/' + item.id, {
+                    method: 'PUT',
+                    body: JSON.stringify({
+                        user: item.user,
+                        title: item.title,
+                        post: item.post,
+                        src: item.src,
+                        section: item.section,
+                        points: item.points,
+                        commentsQuantity: item.commentsQuantity,
+                        date: item.date,
+                        comments: newArray,
+                    }),
+                    headers: {
+                        "Content-type": "application/json; charset=UTF-8"
+                    }
+                })
+            }
+
         })
-        //console.log(this.props.postListjson);
     }
     pointsChange(value, operation) {
-        //console.log(value);
-        //console.log(this.state.jsonArray[value])
-        this.setState(state => {
-            const list = this.props.postListjson.map((item) => {
-                if (item.id === value) {
-                    if (operation === "+") {
-                        item.points += 0.5;
-                    } else if (operation === "-") {
-                        item.points -= 0.5;
+        let operationValue;
+        if (operation === "+") {
+            operationValue = 1;
+        } else if (operation === "-") {
+            operationValue = -1;
+        }
+        this.state.posts.map((item) => {
+            if (item.id === value) {
+                fetch('https://rocky-citadel-32862.herokuapp.com/Forum/Posts/' + item.id, {
+                    method: 'PUT',
+                    body: JSON.stringify({
+                        user: item.user,
+                        title: item.title,
+                        post: item.post,
+                        src: item.src,
+                        section: item.section,
+                        points: item.points + operationValue,
+                        commentsQuantity: item.commentsQuantity,
+                        date: item.date,
+                        comments: item.comments,
+                    }),
+                    headers: {
+                        "Content-type": "application/json; charset=UTF-8"
                     }
-                }
-            });
-            return {
-                list,
-            };
-        })
-    }
-    componentDidMount() {
-        setInterval(() => {
-            this.setState({
-                currentDate: new Date()
-            });
-        }, 5000);
+                })        
+            }
+
+        });
     }
     calculateDate(timeValue) {
         var timeDif, timeSign;
@@ -117,7 +153,8 @@ class PostList extends Component {
         }
     }
     render() {
-        let postButtonsId;
+        if(this.state.posts){
+            let postButtonsId;
         let postId = window.location.pathname.substr(6, 1);
         let section = window.location.pathname.substr(1,);
         let sectionFlag, idFlag;
@@ -153,34 +190,34 @@ class PostList extends Component {
                         <img id="icon" alt="" onClick={() => this.pointsChange(props.item.id, "+")} src={up} />
                         <img id="icon" alt="" onClick={() => this.pointsChange(props.item.id, "-")} src={down} />
                         <Link to={`/post/${props.item.id}`} style={{ textDecoration: 'none' }} activeClassName="active">
-                        <img id="icon" alt="" onClick={() => this.props.setStateHandler("section", "none", "tmpSearch", props.item.title)} src={commentImg} />
+                            <img id="icon" alt="" onClick={() => this.props.setStateHandler("section", "none", "tmpSearch", props.item.title)} src={commentImg} />
                         </Link>
                     </div>
                 </>
             );
         }
-        const display1 = this.props.postListjson.map((item1) => {
+        const display1 = this.state.posts.map((item1) => {
             //console.log('postId ' + postId);
             //console.log('item id ' + item1.id);
             if (parseInt(item1.id) === parseInt(postId)) {
                 idFlag = true;
                 return (<div class="post">
                     <MySubComponent item={item1} />
-                    <Comments commentDate={this.calculateDate} commentHandler={this.addCommentValue} idNumber={item1.id} logedAcc={this.props.logedName} commentState={this.state.comments} json={this.props.postListjson} />
+                    <Comments commentDate={this.calculateDate} commentHandler={this.addCommentValue} idNumber={item1.id} logedAcc={this.props.logedName} commentState={this.state.comments} json={this.state.posts} />
                 </div>);
             }
             else {
                 return (null);
             }
         });
-        const display2 = this.props.postListjson.map((item1) => {
+        const display2 = this.state.posts.map((item1) => {
             return (<div class="post">
                 <MySubComponent item={item1} />
             </div>
             );
         });
         //section
-        const display3 = this.props.postListjson.map((item1) => {
+        const display3 = this.state.posts.map((item1) => {
             if (item1.section === section) {
                 sectionFlag = true;
                 return (<div class="post">
@@ -201,7 +238,7 @@ class PostList extends Component {
             );
         }
 
-        else if(sectionFlag) {
+        else if (sectionFlag) {
             return (
                 <div class="post-list-display">
                     <div class="post-list-sign">
@@ -225,6 +262,10 @@ class PostList extends Component {
                 </div>
             );
         }
+        }else{
+            return(null);
+        }
+        
 
     }
 

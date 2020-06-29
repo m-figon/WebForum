@@ -37,6 +37,7 @@ class App extends Component {
         this.setState({
           [array]: json
         });
+        console.log(json);
       })
   }
   componentDidMount() {
@@ -101,7 +102,7 @@ class App extends Component {
 
     const props2 = {
       setStateHandler: this.setStateChange, logedName: this.state.logedAs, postListjson: this.state.jsonArrayPosts, selectValue: this.state.section,
-      searchValue: this.state.tmpSearch, searchState: this.state.searchSubmit
+      searchValue: this.state.tmpSearch, searchState: this.state.searchSubmit, jsonFetch: this.jsonFetch
     }
     const AllPosts = () => {
       if (!this.state.login && !this.state.register) {

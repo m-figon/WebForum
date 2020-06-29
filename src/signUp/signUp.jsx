@@ -56,13 +56,16 @@ class SignUp extends Component {
             this.validateInput(this.state.password.match(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\.\-_@$!%*#?&])[A-Za-z\d\.\-_@$!%*#?&]{8,13}$/) == null, "password", "correct-pass", "incorrect-pass", "visibleTooltip3", "hiddenTooltip3") &&
             this.validateInput((this.state.password2 !== this.state.password) || (this.state.password2 === ""), "password2", "correct-pass2", "incorrect-pass2", "visibleTooltip4", "hiddenTooltip4")
         ) {
-            const newArray = this.props.json.concat({
-                id: this.props.json.length,
-                user: this.state.account,
-                password: this.state.password
-            });
-            this.props.setStateHandler("jsonArrayForm", newArray);
-            //console.log(this.props.json);
+            fetch('https://rocky-citadel-32862.herokuapp.com/Forum/Users', {
+                method: 'POST',
+                body: JSON.stringify({
+                    user: this.state.account,
+                    password: this.state.password,
+                }),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                }
+            })
         }
     }
     render() {
@@ -81,7 +84,7 @@ class SignUp extends Component {
                             <InputForm display="password" id="password" type="password" value={this.state.password} inputChange={this.inputChange} tooltipId="hiddenTooltip3" tooltip="Please enter correct password" />
                             <InputForm display="confirm password" id="password2" type="password" value={this.state.password2} inputChange={this.inputChange} tooltipId="hiddenTooltip4" tooltip="Please confirm your password" />
                             <div className="button-div">
-                            <button onClick={() => this.displayData()}>Register</button>
+                                <button onClick={() => this.displayData()}>Register</button>
 
                             </div>
 

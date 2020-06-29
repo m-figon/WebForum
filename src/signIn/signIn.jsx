@@ -8,8 +8,19 @@ class SignIn extends Component {
         this.state = {
             account: "",
             password: "",
+            users: []
         }
         this.inputChange = this.inputChange.bind(this);
+    }
+    componentDidMount(){
+        fetch('https://rocky-citadel-32862.herokuapp.com/Forum/Users')
+        .then(response => response.json())
+        .then(json => {
+            this.setState({
+                users: json
+            });
+            console.log(json);
+        })  
     }
     inputChange(type, e) {
         this.setState({
@@ -32,7 +43,7 @@ class SignIn extends Component {
     }
     displayData() {
         var correctFlag = false;
-        this.props.json.map(item => {
+        this.state.users.map(item => {
             if (this.state.account === item.user && this.state.password === item.password) {
                 this.propertyChange("#account", "correct-ac", null);
                 this.propertyChange("#incorrect-ac", "correct-ac", null);
