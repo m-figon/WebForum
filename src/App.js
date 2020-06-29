@@ -24,7 +24,7 @@ class App extends Component {
       jsonArrayPosts: [],
       jsonArrayForm: [],
       loadingId: ""
-    };
+      };
     this.selectOrInputChange = this.selectOrInputChange.bind(this);
     this.searchButton = this.searchButton.bind(this);
     this.setStateChange = this.setStateChange.bind(this);
@@ -57,6 +57,19 @@ class App extends Component {
       }
     }, 500)
     console.log(window.location.pathname);
+    let lastSection;
+    setInterval(() => {
+      if (window.location.pathname !== "/" && lastSection!==window.location.pathname.substr(1,)) {
+        let sectionVal = window.location.pathname.substr(1,);
+        console.log(lastSection);
+        console.log(sectionVal);
+        lastSection=sectionVal;
+        this.setState({
+          section: sectionVal
+        })
+      }
+    }, 500)
+
   }
   selectOrInputChange(value, e) {
     this.setState({
@@ -155,71 +168,10 @@ class App extends Component {
         );
       }
     }
-    /*
-    if (!this.state.login && !this.state.register && this.state.section !== "none") {
-      return (
-        <div className="App">
-          <MySubComponent />
-          <div className="loading" id={this.state.loadingId}>
-            <img src={load} />
-          </div>
-        </div>
-      );
-    }
-    else if (this.state.login && this.state.section !== "none") {
-      return (
-        <>
-          <div className="dark-App">
-            <MySubComponent />
-          </div>
-          <SignIn json={this.state.jsonArrayForm} setStateHandler={this.setStateChange} login={this.state.login} />
-        </>
-      );
-    }
-    else if (this.state.login && this.state.section === "none") {
-      return (
-        <>
-          <div className="dark-App">
-            <TopBar {...props1} />
-            <PostList {...props2} />
-          </div>
-          <SignIn json={this.state.jsonArrayForm} setStateHandler={this.setStateChange} login={this.state.login} />
-        </>
-      );
-    }
-    else if (this.state.register && this.state.section !== "none") {
-      return (
-        <>
-          <div className="dark-App">
-            <MySubComponent />
-          </div>
-          <SignUp json={this.state.jsonArrayForm} setStateHandler={this.setStateChange} register={this.state.register} />
-        </>
-      );
-    } else if (this.state.register && this.state.section === "none") {
-      return (
-        <>
-          <div className="dark-App">
-            <TopBar {...props1} />
-            <PostList {...props2} />
-          </div>
-          <SignUp json={this.state.jsonArrayForm} setStateHandler={this.setStateChange} register={this.state.register} />
-        </>
-      );
-    }
-    if (this.state.section === "none" && !this.state.register && !this.state.login) {
-      return (
-        <div className="App">
-          <TopBar {...props1} />
-          <PostList {...props2} />
-        </div>
-      );
-    }
-    */
-
     return (
       <>
         <Route exact path="/" component={AllPosts} />
+        <Route exact path="/home" component={AllPosts} />
         <Route exact path="/:type" component={AllPosts} />
         <Route exact path="/post/:id" component={OnePosts} />
         <div className="loading" id={this.state.loadingId}>

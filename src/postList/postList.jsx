@@ -152,14 +152,16 @@ class PostList extends Component {
                     <div id={postButtonsId} class="post-buttons">
                         <img id="icon" alt="" onClick={() => this.pointsChange(props.item.id, "+")} src={up} />
                         <img id="icon" alt="" onClick={() => this.pointsChange(props.item.id, "-")} src={down} />
+                        <Link to={`/post/${props.item.id}`} style={{ textDecoration: 'none' }} activeClassName="active">
                         <img id="icon" alt="" onClick={() => this.props.setStateHandler("section", "none", "tmpSearch", props.item.title)} src={commentImg} />
+                        </Link>
                     </div>
                 </>
             );
         }
         const display1 = this.props.postListjson.map((item1) => {
-            console.log('postId ' + postId);
-            console.log('item id ' + item1.id);
+            //console.log('postId ' + postId);
+            //console.log('item id ' + item1.id);
             if (parseInt(item1.id) === parseInt(postId)) {
                 idFlag = true;
                 return (<div class="post">
