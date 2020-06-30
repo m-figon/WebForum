@@ -28,6 +28,7 @@ class App extends Component {
     this.selectOrInputChange = this.selectOrInputChange.bind(this);
     this.searchButton = this.searchButton.bind(this);
     this.setStateChange = this.setStateChange.bind(this);
+    this.jsonFetch = this.jsonFetch.bind(this);
 
   }
   jsonFetch(http, array) {
@@ -35,7 +36,9 @@ class App extends Component {
       .then(response => response.json())
       .then(json => {
         this.setState({
-          [array]: json
+          [array]: json,
+          loadingId: "hidden"
+
         });
         console.log(json);
       })
@@ -48,14 +51,6 @@ class App extends Component {
 
     let searchInterval = setInterval(() => {
       this.searchButton()
-    }, 500)
-    let interval = setInterval(() => {
-      if (document.readyState === "complete") {
-        this.setState({
-          loadingId: "hidden"
-        })
-        clearInterval(interval);
-      }
     }, 500)
     console.log(window.location.pathname);
     let lastSection;

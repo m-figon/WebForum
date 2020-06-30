@@ -15,6 +15,7 @@ class Comments extends Component {
     }
     enterComment(value1, value2) {
         this.props.commentHandler(value1, value2);
+        this.props.commentHandler(value1, value2);
         this.setState({
             commentValue: ""
         })
