@@ -66,7 +66,7 @@ class SignIn extends Component {
         if (!this.props.login) {
             return (null);
         } else {
-            return (
+            return ReactDOM.createPortal(
                 <div class="registration">
                     <div class="login-form">
                         
@@ -80,7 +80,7 @@ class SignIn extends Component {
                         <button onClick={() => this.displayData()}>Login</button>
                     </div>
                 </div>
-            );
+            ,document.getElementById('portal-root'));
         }
 
     }

@@ -1,5 +1,5 @@
 .registration {
-    position: absolute;
+    position: fixed;
     display: flex;
     height: 100vh;
     width: 100vw;

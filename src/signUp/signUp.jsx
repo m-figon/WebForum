@@ -72,7 +72,7 @@ class SignUp extends Component {
         if (!this.props.register) {
             return (null);
         } else {
-            return (
+            return ReactDOM.createPortal(
                 <div class="registration">
                     <div class="register-form">
                         <div>
@@ -92,7 +92,7 @@ class SignUp extends Component {
 
                     </div>
                 </div>
-            );
+            ,document.getElementById('portal-root'));
         }
 
     }
