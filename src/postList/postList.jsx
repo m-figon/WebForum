@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './postList.css';
+import '../App.css';
 import commentImg from './orangeText.png';
 import up from './orangeUp.png';
 import down from './orangeDown.png';

@@ -1,9 +1,9 @@
+@import '../main.scss';
+
 .post-list-display {
     height: 100vh;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flex(flex-start,center,column);
     position: absolute;
     margin-top: 5rem;
 }
@@ -14,6 +14,11 @@
 }
 .post-list-sign {
     margin-top: 15rem;
+    h1 {
+        margin-top: 2.5vh;
+        color: $main-color;
+        font-size: 1.5rem;
+    }
 }
 #post-title {
     cursor: pointer;
@@ -22,7 +27,7 @@
     width: 50rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between;   
 }
 .post {
     margin-top: 1rem;
@@ -30,12 +35,12 @@
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.15);
     background-color: white;
-}
-.post img {
-    width: 30rem;
-    height: 20rem;
-    margin-bottom: 2rem;
-    border-radius: 5px;
+    img {
+        width: 30rem;
+        height: 20rem;
+        margin-bottom: 2rem;
+        border-radius: 5px;
+    }
 }
 #visible-buttons {
     display: flex;
@@ -48,20 +53,14 @@
 .post p,
 .post h2 {
     font-size: 1rem;
-    color: #2b2b2b;
-}
-.post-list-sign h1 {
-    margin-top: 2.5vh;
-
-    color: #fc9003;
-    font-size: 1.5rem;
+    color: $dark;
 }
 #section {
-    color: #fc9003;
+    color: $main-color;
     margin-right: 1vw;
 }
 #section:hover {
-    color: #fc9003cb;
+    color: $main-hover-color;
 }
 .post h1,
 .post p {
@@ -84,32 +83,38 @@
     padding-top: 2vh;
 }
 .img {
-    display: flex;
-    justify-content: center;
+    @include flex(center,flex-start,row);
 }
 .post-buttons {
     margin-top: 1vh;
-    display: flex;
-    justify-content: center;
-
+    @include flex(center,flex-start,row);
     height: 4vh;
+    button {
+        background-color: $main-color;
+        color: white;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 7px;
+        height: 80%;
+        width: 10%;
+        margin-left: 0.5vw;
+        margin-right: 0.5vw;
+    }
+    img {
+        margin-left: 1vw;
+        margin-right: 1vw;
+        height: 1.3rem;
+        width: 1.3rem;
+        &:hover {
+            cursor: pointer;
+            filter: opacity(85%);
+        }
+    }
 }
 #section:hover {
     cursor: pointer;
 }
-.post-buttons button {
-    background-color: #fc9003;
-    color: white;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    border-radius: 7px;
-    height: 80%;
-    width: 10%;
-    margin-left: 0.5vw;
-    margin-right: 0.5vw;
-}
 #right {
-    display: flex;
-    justify-content: flex-end;
+    @include flex(flex-end,flex-start,row);
     margin-right: 10px;
 }
 #icon {
@@ -118,20 +123,8 @@
     margin-bottom: 1rem;
 }
 .left {
-    display: flex;
-    justify-content: flex-start;
+    @include flex(flex-start,flex-start,row);
 }
-.post-buttons img {
-    margin-left: 1vw;
-    margin-right: 1vw;
-    height: 1.3rem;
-    width: 1.3rem;
-}
-.post-buttons img:hover {
-    cursor: pointer;
-    filter: opacity(85%);
-}
-
 @media only screen and (max-width: 900px) {
     .post-list {
         width: 30rem;
@@ -166,7 +159,6 @@
     #right-part {
         width: 12rem;
     }
-
     #right-part h2,
     #middle-part h2 {
         font-size: 0.7rem;
@@ -190,6 +182,6 @@
         width: 22rem;
     }
     .post-list-sign{
-        margin-top:8rem;
+        margin-top: 8rem;
     }
 }

@@ -1,0 +1,174 @@
+@import '../main.scss';
+
+.top-bar {
+    position: fixed;
+    height: 5vh;
+    width: 100vw;
+    background-color: #fafafa;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    @include flex(flex-start,center,row);
+    margin-top: 0;
+    z-index: 8;
+    h1 {
+        margin-left: 1vw;
+        font-size: 1.5rem;
+        color: #2b2b2b;
+    }
+    input {
+        border-radius: 3px;
+        width: 14rem;
+        height: 1.1rem;
+        font-family: "PT Sans", sans-serif;
+        background-color: #00000010;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        font-family: $font;
+        padding-left: 1%;
+    }
+}
+.left,.left-part {
+    @include flex(flex-start,center,row);
+    height: 100%;
+    width: 100%;
+}
+.left:hover,
+.left-part:hover {
+    cursor: pointer;
+}
+.middle {
+    margin-left: -10vw;
+    @include flex();
+    width: 100%;
+    height: 100%;
+    button {
+        background-color: #00000010;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 3px;
+    }
+    img {
+        height: 0.9rem;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+.right,.right-part {
+    @include flex(flex-end,center,row);
+    height: 100%;
+    width: 100%;
+    padding-right: 5vw;
+    button {
+        height: 70%;
+        width: 20%;
+        margin-left: 0.5vw;
+        margin-right: 0.5vw;
+        border: black 1.5px solid;
+        border-radius: 7px;
+    }
+    h1 {
+        font-size: 0.7rem;
+    }
+    select {
+        width: 10vw;
+        margin-right: 2vw;
+        background-color: #00000010;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        font-family: $font;
+        border-radius: 5px;
+    }
+}
+#log-in,
+#sign-up {
+    margin-left: 0.5vw;
+    color: $main-color;
+    font-size: 1rem;
+    margin-right: 0.5vw;
+    &:hover {
+        color: $main-hover-color;
+        cursor: pointer
+    }
+}
+#title:hover {
+    cursor: pointer;
+}
+#reset{
+    font-family: 'Righteous', cursive;
+    color: #fc9003a8;
+    &:hover {
+        cursor: pointer;
+        color: $main-hover-color;
+    }
+}
+.App-logo {
+    margin-top: 1vh;
+    margin-left: 2vw;
+    height: 3rem;
+    pointer-events: none;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+@media only screen and (max-width: 1400px) {
+#log-in,#sign-up{
+    font-size: 1rem;
+  }
+#reset{
+    font-size: 1.5rem;
+  }
+.middle,.left-part{
+    width: 60%;
+  }
+.right-part{
+    width: 70%;
+  }
+.App-logo{
+    height: 2rem;
+  }
+  
+}
+@media only screen and (max-width: 900px) {
+#log-in,#sign-up{
+    font-size: 0.8rem;
+  }
+#reset{
+    font-size: 1.0rem;
+  }
+.right-part select{
+    width: 5rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+.left-part{
+    width: 35%;
+  }
+.right-part{
+    width: 100%;
+    padding-right: 0;
+  }
+.right-part{
+    justify-content: center;
+  }
+#log-in,#sign-up{
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+  }
+.middle{
+    display: none;
+  }
+  
+}
+
+@media only screen and (max-width: 400px) {
+.App-logo{
+    display: none;
+  }
+}

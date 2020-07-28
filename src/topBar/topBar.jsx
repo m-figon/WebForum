@@ -1,4 +1,4 @@
-import "./topBar.css";
+import '../App.css';
 import React, { Component } from 'react';
 import logo from './lollipop.png';
 import searchImg from './search.png';

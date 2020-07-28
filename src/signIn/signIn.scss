@@ -1,11 +1,10 @@
+@import "../main.scss";
+
 .registration {
     position: fixed;
-    display: flex;
     height: 100vh;
     width: 100vw;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    @include flex(center, center, row);
     z-index: 3;
 }
 .cancel-button-1 {
@@ -18,37 +17,25 @@
     margin-left: 32rem;
     margin-top: 0;
 }
-.login-form {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: url("rain.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: 100% 100%;
-    border: 1px solid #fc9003;
-    width: 30rem;
-    height: 15rem;
-    border-radius: 10px;
-}
+.login-form,
 .register-form {
     padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: url("rain.jpg");
+    @include flex(center, center, column);
+    background: url("./signIn/rain.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: 100% 100%;
-    border: 1px solid #fc9003;
-    width: 35rem;
-    height: 25rem;
+    border: 1px solid $main-color;
     border-radius: 10px;
+}
+.login-form {
+    width: 30rem;
+    height: 17rem;
+}
+.register-form {
+    width: 35rem;
+    height: 28rem;
 }
 #correct-ac,
 #correct-pass,
@@ -62,7 +49,6 @@
 #incorrect-email {
     border: solid #e901018f 1.5px;
 }
-
 .one-line {
     display: flex;
     align-items: center;
@@ -80,50 +66,49 @@
     width: 70%;
     height: 2rem;
 }
-.login-form input,
-.login-form select,
-.register-form input,
-.register-form select {
-    padding: 0.2rem 0.2rem;
-    font-family: "Lato", sans-serif;
-    height: 1.5rem;
-    width: 90%;
-    color: #383838;
-    background-color: #e7e7e7;
-    font-size: 1.2rem;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    border-radius: 7px;
+.login-form,
+.register-form {
+    input,
+    select {
+        padding: 0.2rem 0.2rem;
+        font-family: $font;
+        height: 1.5rem;
+        width: 90%;
+        color: $dark;
+        background-color: #e7e7e7;
+        font-size: 1.2rem;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 7px;
+    }
+    h1 {
+        display: inline-block;
+        color: $dark;
+        font-size: 1.5rem;
+        font-family: $font;
+    }
+    button {
+        margin: 2rem 0;
+        background-color: $main-color;
+        color: $gray;
+        font-family: $font;
+        font-size: 1.2rem;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 5px;
+        &:hover {
+            cursor: pointer;
+            background-color: $main-hover-color;
+        }
+    }
 }
 .right input {
     width: 100%;
-}
-.login-form h1,
-.register-form h1 {
-    display: inline-block;
-    color: #2b2b2b;
-    font-size: 1.5rem;
-    font-family: "Lato", sans-serif;
 }
 .button-div {
     width: 100%;
     display: flex;
     justify-content: center;
 }
-.login-form button,
-.register-form button {
-    margin: 2rem 0;
-    background-color: #fc9003;
-    color: #cacaca;
-    font-family: "PT Sans", sans-serif;
-    font-size: 1.2rem;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    border-radius: 5px;
-}
-.login-form button:hover,
-.register-form button:hover {
-    cursor: pointer;
-    background-color: #fc9003d7;
-}
+
 #submit {
     display: flex;
     flex-direction: row;
@@ -144,13 +129,13 @@
     visibility: hidden;
     display: block;
     position: absolute;
-    margin-left: 11rem;
+    margin-right: -10%;
     width: 10rem;
     height: 1.2rem;
     padding: 0.4rem 0.4rem 0.5rem;
-    background-color: #fc9003;
-    color: #cacaca;
-    font-family: "Lato", sans-serif;
+    background-color: $main-color;
+    color: $gray;
+    font-family: $font;
     font-size: 0.7rem;
     border-radius: 5px;
 }
@@ -204,22 +189,45 @@
         width: 25rem;
         height: 12rem;
     }
+    #hiddenTooltip1,
+    #hiddenTooltip2,
+    #hiddenTooltip3,
+    #hiddenTooltip4,
+    #hiddenTooltip5,
+    #hiddenTooltip6,
+    #visibleTooltip1,
+    #visibleTooltip2,
+    #visibleTooltip3,
+    #visibleTooltip4,
+    #visibleTooltip5,
+    #visibleTooltip6 {
+        margin-right: -20%;
+    }
     .register-form {
         width: 27rem;
         height: 19rem;
     }
-    .login-form h1,
-    .register-form h1 {
-        font-size: 1.2rem;
+    .login-form,
+    .register-form {
+        h1 {
+            font-size: 1.2rem;
+        }
+        input,
+        select {
+            height: 1.2rem;
+            width: 90%;
+        }
+        button {
+            margin: 1rem 0;
+            background-color: $main-color;
+            color: $gray;
+            font-family: "PT Sans", sans-serif;
+            font-size: 1.2rem;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 5px;
+        }
     }
-    .login-form input,
-    .login-form select,
-    .register-form input,
-    .register-form select {
-        height: 1.2rem;
-        width: 90%;
-    }
-    .one-line{
+    .one-line {
         margin-top: 1.5vh;
     }
     .cancel-button-1 {
@@ -230,25 +238,33 @@
         margin-left: 26rem;
         margin-top: 0rem;
     }
-    .login-form button,
-    .register-form button {
-        margin: 1rem 0;
-        background-color: #fc9003;
-        color: #cacaca;
-        font-family: "PT Sans", sans-serif;
-        font-size: 1.2rem;
-        border: 1px solid rgba(0, 0, 0, 0.15);
-        border-radius: 5px;
-    }
 }
-
 @media only screen and (max-width: 600px) {
+    #hiddenTooltip1,
+    #hiddenTooltip2,
+    #hiddenTooltip3,
+    #hiddenTooltip4,
+    #hiddenTooltip5,
+    #hiddenTooltip6,
+    #visibleTooltip1,
+    #visibleTooltip2,
+    #visibleTooltip3,
+    #visibleTooltip4,
+    #visibleTooltip5,
+    #visibleTooltip6 {
+        margin-right: -35%;
+    }
     .cancel-button-1,
-    .cancel-button-2{
+    .cancel-button-2 {
         margin-left: 13rem;
     }
-    .login-form,
-    .register-form {
+    .login-form {
         width: 14rem;
+    }
+    .register-form {
+        width: 18rem;
+    }
+    .cancel-button-2 {
+        margin-left: 16rem;
     }
 }

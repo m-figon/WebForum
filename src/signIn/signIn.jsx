@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from "react-dom";
-import './signIn.css';
+import '../App.css';
 import InputForm from '../signUp/inputForm.jsx'
 class SignIn extends Component {
     constructor() {

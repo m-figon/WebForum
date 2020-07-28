@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
-import './comments.css';
+import '../App.css';
 class Comments extends Component {
     constructor() {
         super();

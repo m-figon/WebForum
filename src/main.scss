@@ -1,0 +1,13 @@
+$main-color: #fc9003;
+$main-hover-color: #fc9003c2;
+$background-color: #e2e2e2;
+$dark: #2b2b2b;
+$gray: #cacaca;
+$font: "Lato", sans-serif;
+
+@mixin flex($justify-content:center,$align-items:center,$flex-direction:row) {
+    display: flex;
+    justify-content: $justify-content;
+    align-items: $align-items;
+    flex-direction: $flex-direction;
+}

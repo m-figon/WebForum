@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import './trending.css';
+import '../App.css';
 import { Link } from 'react-router-dom';
 
 function Trending(props) {
