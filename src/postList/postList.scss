@@ -58,6 +58,7 @@
 #section {
     color: $main-color;
     margin-right: 1vw;
+    transition: color 500ms;
 }
 #section:hover {
     color: $main-hover-color;
@@ -104,6 +105,7 @@
         margin-right: 1vw;
         height: 1.3rem;
         width: 1.3rem;
+        transition: filter 500ms;
         &:hover {
             cursor: pointer;
             filter: opacity(85%);

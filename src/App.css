@@ -34,6 +34,7 @@
   color: white;
   border-radius: 3px;
   border: 1px solid rgba(0, 0, 0, 0.15);
+  transition: background-color 500ms;
 }
 .users-comment button:hover {
   background-color: #fc9003c2;
@@ -126,6 +127,7 @@
 #section {
   color: #fc9003;
   margin-right: 1vw;
+  transition: color 500ms;
 }
 
 #section:hover {
@@ -187,6 +189,7 @@
   margin-right: 1vw;
   height: 1.3rem;
   width: 1.3rem;
+  transition: filter 500ms;
 }
 .post-buttons img:hover {
   cursor: pointer;
@@ -320,12 +323,46 @@
   align-items: center;
   flex-direction: column;
   background: url("./signIn/rain.jpg");
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
   background-size: 100% 100%;
   border: 1px solid #fc9003;
   border-radius: 10px;
+}
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
 }
 
 .login-form {
@@ -402,6 +439,7 @@
   font-size: 1.2rem;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 5px;
+  transition: background-color 500ms;
 }
 .login-form button:hover,
 .register-form button:hover {
@@ -697,6 +735,7 @@
   color: #fc9003;
   font-size: 1rem;
   margin-right: 0.5vw;
+  transition: color 500ms;
 }
 #log-in:hover,
 #sign-up:hover {
@@ -711,6 +750,7 @@
 #reset {
   font-family: "Righteous", cursive;
   color: #fc9003a8;
+  transition: color 500ms;
 }
 #reset:hover {
   cursor: pointer;

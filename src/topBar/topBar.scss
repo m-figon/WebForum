@@ -82,6 +82,7 @@
     color: $main-color;
     font-size: 1rem;
     margin-right: 0.5vw;
+    transition: color 500ms;
     &:hover {
         color: $main-hover-color;
         cursor: pointer
@@ -93,6 +94,7 @@
 #reset{
     font-family: 'Righteous', cursive;
     color: #fc9003a8;
+    transition: color 500ms;
     &:hover {
         cursor: pointer;
         color: $main-hover-color;
